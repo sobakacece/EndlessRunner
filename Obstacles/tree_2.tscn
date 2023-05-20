@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://drdtw5shpbr4j"]
+
+[ext_resource type="Script" path="res://HurtBox.cs" id="1_royg0"]
+[ext_resource type="Texture2D" uid="uid://bl83yygs4h84n" path="res://Art/Obstacles/Tree_2.png" id="2_auvdt"]
+
+[node name="Tree" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_royg0")
+
+[node name="VisibleOnScreenEnabler2D2" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(2.1, 2.1)
+enable_node_path = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_auvdt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, -17, 4, -17, 4, 18, -4, 18, -4, -18, 1, -18)
