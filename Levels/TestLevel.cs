@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 public partial class TestLevel : Node2D
@@ -23,8 +24,7 @@ public partial class TestLevel : Node2D
     public override void _Process(double delta)
     {
         tileMap.GlobalPosition = new Vector2(player.GlobalPosition.X, tileMap.GlobalPosition.Y);
-        // SpawnObject(100);
-		SpawnObjectAtEndOfScreen();
+        SpawnObjectAtEndOfScreen(150);
     }
     public List<PackedScene> GetAllSpawnable(string path)
     {
@@ -34,7 +34,7 @@ public partial class TestLevel : Node2D
         {
             dir.ListDirBegin();
             string filename = dir.GetNext();
-            while (filename != "")
+            while (filename != "" && filename.Contains("tscn"))
             {
                 pathes.Add((PackedScene)ResourceLoader.Load(path + filename));
                 GD.Print($"Found file: {filename}");
@@ -48,22 +48,22 @@ public partial class TestLevel : Node2D
         return pathes;
     }
 
-    private void SpawnObject(float range)
+    private void SpawnObjectAtEndOfScreen(float range)
     {
-        if (player.GlobalPosition.X - spawnPoint > range)
+        
+        if (player.GlobalPosition.X > spawnPoint) //spawn poin is a range where player appears. So when player starts walking, It spawns a tree.
         {
             Random rnd = new Random();
-            int g = rnd.Next(0, obstaclesScenes.Count - 1);
-            Node2D obstacle = (Node2D)obstaclesScenes[g].Instantiate();
+            Node2D obstacle = (Node2D)obstaclesScenes[rnd.Next(0, obstaclesScenes.Count)].Instantiate(); //spawn random object from list
             this.AddChild(obstacle);
-            obstacle.GlobalPosition = new Vector2(GetViewport().GetVisibleRect().Size.X, this.GlobalPosition.Y);
-            spawnPoint += range;
+
+            float placeToSpawn = player.GlobalPosition.X + GetViewport().GetVisibleRect().Size.X / 5; // distance to the screen edge, so trees can spawn behind the screen
+            // 5 is camera zoom, 2 is half of the screen, so I guess 5*2? I'm not sure;
+            GD.Print($"Tree spawned at coords: {(placeToSpawn).ToString()}");
+            obstacle.GlobalPosition = new Vector2(placeToSpawn, tileMap.GlobalPosition.Y - 20); //-20 is a half of object's sprite heigth
+            spawnPoint += range; //there spawnpoint updates and player must go half of the screen to spawn another tree. The faster player goes, the faster tree spawns
         }
+
     }
-    private void SpawnObjectAtEndOfScreen()
-    {
-        Node2D obstacle = (Node2D)obstaclesScenes[2].Instantiate();
-        this.AddChild(obstacle);
-        obstacle.GlobalPosition = new Vector2(GetViewport().GetVisibleRect().Size.X, this.GlobalPosition.Y);
-    }
+
 }

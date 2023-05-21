@@ -9,7 +9,7 @@ public partial class HurtBox : Area2D
 	public override void _Ready()
 	{
 		MyDamage = 5;
-		ConnectToArea();
+		// ConnectToArea();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
