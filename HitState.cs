@@ -2,6 +2,7 @@ using Godot;
 using System;
 
 public partial class HitState : State
+
 {
     [Export]
     Vector2 knockbackSpeed = new Vector2(100, 0);
@@ -19,6 +20,7 @@ public partial class HitState : State
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+
         // characterStateMachine = (CharacterStateMachine)this.GetParent();
         damageable.OnHit += OnDamageableHit;
 
@@ -30,7 +32,7 @@ public partial class HitState : State
     }
     public override void StateProcess(double delta)
     {
-        GD.Print(Math.Round(Convert.ToDecimal(timer.TimeLeft), 2));
+        // GD.Print(Math.Round(Convert.ToDecimal(timer.TimeLeft), 2));
         base.StateProcess(delta);
     }
 
@@ -53,10 +55,11 @@ public partial class HitState : State
             MyCharacter.Velocity = knockbackSpeed * knockbackDirection;
             EmitSignal(SignalName.InterruptState, this);
             // GD.Print(MyCharacter.Velocity.ToString());
+            GD.Print("Health: " + damageable.MyHealth);
         }
-
         else
         {
+            GD.Print("dead");
             EmitSignal(SignalName.InterruptState, deadState);
             playback.Travel(deadAnimationNode);
         }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d4fw7ojk5cuiv"]
+[gd_scene load_steps=33 format=3 uid="uid://d4fw7ojk5cuiv"]
 
 [ext_resource type="Script" path="res://Characters/Player.cs" id="1_8xylo"]
 [ext_resource type="Texture2D" uid="uid://ki1naw0pvt0d" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Player_walk.png" id="1_elit3"]
@@ -7,13 +7,16 @@
 [ext_resource type="Script" path="res://CharacterStateMachine.cs" id="4_ga5c5"]
 [ext_resource type="Script" path="res://Characters/GroundState.cs" id="5_1nqp1"]
 [ext_resource type="Script" path="res://Characters/AirState.cs" id="6_u1yhw"]
-[ext_resource type="Script" path="res://State.cs" id="7_8mbeu"]
 [ext_resource type="Script" path="res://HitState.cs" id="7_fitdc"]
 [ext_resource type="Script" path="res://Characters/StateDebug.cs" id="8_8nrdf"]
+[ext_resource type="Script" path="res://Characters/DeadState.cs" id="9_0vf5k"]
 [ext_resource type="Script" path="res://Damageable.cs" id="9_rsrrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i368i"]
 size = Vector2(11, 16)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w4tya"]
+animation = &"dead"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ts5h4"]
 animation = &"hit"
@@ -36,15 +39,19 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_53bd3"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hb2gt"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8xg0m"]
+states/dead/node = SubResource("AnimationNodeAnimation_w4tya")
+states/dead/position = Vector2(281, -87)
 states/hit/node = SubResource("AnimationNodeAnimation_ts5h4")
 states/hit/position = Vector2(302, -18)
 states/jump/node = SubResource("AnimationNodeAnimation_fytwe")
 states/jump/position = Vector2(451, 71)
 states/walk/node = SubResource("AnimationNodeAnimation_f1uoh")
 states/walk/position = Vector2(302, 79)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_unjsf"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_mjmxu"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_34bkc"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_2t4sl"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_53bd3")]
-graph_offset = Vector2(-47, -81)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_unjsf"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_mjmxu"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_34bkc"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_2t4sl"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_53bd3"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_hb2gt")]
+graph_offset = Vector2(-131, -125)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3ao2h"]
 
@@ -65,6 +72,55 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_f4tqt"]
 resource_name = "dead"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_llusw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.785398, -1.5708]
+}
 
 [sub_resource type="Animation" id="Animation_uyc53"]
 resource_name = "hit"
@@ -214,11 +270,10 @@ font = SubResource("SystemFont_j1rt3")
 font_size = 10
 
 [node name="Player" type="CharacterBody2D"]
+rotation = -1.5708
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_8xylo")
-speed = 200.0
-jumpVelocity = -1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -246,7 +301,7 @@ CurrentState = NodePath("Ground")
 
 [node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("airState")]
 script = ExtResource("5_1nqp1")
-jumpVelocity = -300.0
+jumpVelocity = -500.0
 airState = NodePath("../Air")
 moveable = true
 
@@ -266,7 +321,7 @@ returnState = NodePath("../Ground")
 wait_time = 0.2
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("7_8mbeu")
+script = ExtResource("9_0vf5k")
 
 [node name="StateDebug" type="Label" parent="."]
 visible = false
@@ -281,4 +336,4 @@ script = ExtResource("8_8nrdf")
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("9_rsrrl")
 Knockable = true
-health = 1000
+health = 5

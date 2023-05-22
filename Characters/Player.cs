@@ -4,7 +4,10 @@ using System;
 public partial class Player : CharacterBody2D
 {
     [Export] public float speed = 300.0f;
-    [Export] public float jumpVelocity = -400.0f;
+    // [Export] public float jumpVelocity = -400.0f;
+    // [Export] public int MyHealth { get => 3; set => MyHealth = value; }
+
+    public int MyScore {get; set;}
 
     private Vector2 direction;
     // Get the gravity from the project settings to be synced with RigidBody nodes.

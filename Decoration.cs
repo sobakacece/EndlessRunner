@@ -8,11 +8,11 @@ public partial class Decoration : HurtBox
     {
         notifier = this.GetNode<VisibleOnScreenNotifier2D>("Notifier");
         notifier.Connect("screen_exited", new Callable(this, "Despawn"));
-
         ConnectToArea();
     }
     public void Despawn()
     {
+        GD.Print(this.Name + " is Despawned");
         this.QueueFree();
     }
 }
