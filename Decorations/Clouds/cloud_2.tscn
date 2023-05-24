@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd4d8wjj8epwy"]
+
+[ext_resource type="Texture2D" uid="uid://dgq5sek3xcosn" path="res://Art/Retro-Lines-16x16/Clouds/cloud_2.png" id="1_q3l8m"]
+
+[node name="Node2D" type="Sprite2D"]
+texture = ExtResource("1_q3l8m")
+flip_h = true

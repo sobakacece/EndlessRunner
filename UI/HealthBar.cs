@@ -7,13 +7,13 @@ public partial class HealthBar : BoxContainer
     #region HealthUIVariables
     PackedScene packedHP;
     [Export] Texture2D emptyHP;
-    List<TextureRect> hpList = new List<TextureRect>();
+    List<HPContainer> hpList = new List<HPContainer>();
     BoxContainer healthBar;
     int counter = 1;
 
     #endregion
     #region  ScoreVariables
-    float startingPoint, currentScore = 0;
+    float startingPoint, currentScore;
     Label scoreLabel;
     public const int startMod = 5;
     #endregion
@@ -22,30 +22,45 @@ public partial class HealthBar : BoxContainer
 
     public override void _Ready()
     {
+        player = (Player)GetNode("/root/TestLevel/Player");
         startingPoint = player.GlobalPosition.X;
+
+        healthBar = this.GetNode<BoxContainer>("HealthBar");
+        scoreLabel = this.GetNode<Label>("ScoreContainer/Score");
+        // GD.Print("Order: UI");
+        packedHP = (PackedScene)ResourceLoader.Load("res://UI/hp.tscn");
+        signalBus = GetNode<SignalBus>("/root/SignalBus");
+
+        signalBus.Restart += OnRestart;
+        signalBus.HealthChanged += ChangeTexture;
+        ParsingPlayer();
+
+        // signalBus.PlayerEnteredScene += ParsingPlayer; //TODO Remove this shit and do it in a normal way
+        // signalBus.PlayerDead += () => signalBus.EmitSignal(SignalBus.SignalName.SaveScore, currentScore);
     }
-    public void ParsingPlayer(Player parameter, int health)
+    public void OnRestart()
+    {
+        foreach (HPContainer child in healthBar.GetChildren())
+        {
+            healthBar.RemoveChild(child);
+        }
+        hpList = new List<HPContainer>();
+        counter = 1;
+        ParsingPlayer();
+    }
+    public void ParsingPlayer()
     {
         // GD.Print("Player Parsed");
-        player = parameter;
-        for (int i = 0; i < health; i++) //TODO Remove this shit and do it in a normal way
+        for (int i = 0; i < player.PlayerHealth; i++)
         {
-            TextureRect healthPoint = (TextureRect)packedHP.Instantiate();
+            HPContainer healthPoint = (HPContainer)packedHP.Instantiate();
             healthBar.AddChild(healthPoint);
             hpList.Add(healthPoint);
         }
     }
     public override void _EnterTree()
     {
-        packedHP = (PackedScene)ResourceLoader.Load("res://UI/hp.tscn");
-        signalBus = GetNode<SignalBus>("/root/SignalBus");
 
-        signalBus.HealthChanged += ChangeTexture;
-        signalBus.PlayerEnteredScene += ParsingPlayer;
-        // signalBus.PlayerDead += () => signalBus.EmitSignal(SignalBus.SignalName.SaveScore, currentScore);
-
-        healthBar = this.GetNode<BoxContainer>("HealthBar");
-        scoreLabel = this.GetNode<Label>("ScoreContainer/Score");
 
     }
 
@@ -62,8 +77,7 @@ public partial class HealthBar : BoxContainer
     }
     public void ChangeTexture(Node node, int damage)
     {
-        hpList[hpList.Count - counter].Texture = emptyHP;
+        hpList[hpList.Count - counter].Texture = hpList[hpList.Count - counter].MyemptyHPTexture;
         counter++;
-
     }
 }

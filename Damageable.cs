@@ -10,10 +10,7 @@ public partial class Damageable : Node
     public override void _Ready()
     {
         signalBus = GetNode<SignalBus>("/root/SignalBus");
-        if (this.Owner is Player)
-        {
-            signalBus.EmitSignal(SignalBus.SignalName.PlayerEnteredScene, GetParent(), MyHealth);
-        }
+        
         var animTree = GetParent().GetNode<AnimationTree>("AnimationTree");
         animTree.Connect("animation_finished", new Callable(this, "Dead_Animation_Finished"));
     }

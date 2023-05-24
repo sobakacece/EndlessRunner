@@ -301,7 +301,7 @@ CurrentState = NodePath("Ground")
 
 [node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("airState")]
 script = ExtResource("5_1nqp1")
-jumpVelocity = -500.0
+jumpVelocity = -600.0
 airState = NodePath("../Air")
 moveable = true
 
@@ -312,13 +312,13 @@ moveable = true
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "deadState", "returnState")]
 script = ExtResource("7_fitdc")
-knockbackSpeed = Vector2(150, 0)
+knockbackSpeed = Vector2(300, 0)
 damageable = NodePath("../../Damageable")
 deadState = NodePath("../Dead")
 returnState = NodePath("../Ground")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
-wait_time = 0.2
+wait_time = 0.4
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_0vf5k")

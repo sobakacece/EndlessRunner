@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr4gxkwxivgly"]
+
+[ext_resource type="Script" path="res://Decoration.cs" id="1_uetep"]
+[ext_resource type="Texture2D" uid="uid://bl83yygs4h84n" path="res://Art/Obstacles/Tree_2.png" id="2_xdkde"]
+
+[node name="Tree" type="Area2D" node_paths=PackedStringArray("notifier")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_uetep")
+notifier = NodePath("Notifier")
+MyDamage = 1
+
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-10.5, 0)
+scale = Vector2(3.15, 2.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.749999)
+scale = Vector2(1, 1.04054)
+texture = ExtResource("2_xdkde")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, -17, 4, -17, 4, 18, -4, 18, -4, -18, 1, -18)

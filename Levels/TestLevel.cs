@@ -2,12 +2,12 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-
+//TODO CREATE CLASS OF SPAWNER. ADD PROPERTIES RANGE, HEIGTH AND METHOD TO MAKE VISIBLE ON OF SPRITES. THEN PROCESS THERE WILL SPAWN ALL SPAWNERS.
 public partial class TestLevel : Node2D
 {
     Player player;
     TileMap tileMap;
-    List<PackedScene> obstaclesScenes;
+    List<PackedScene> obstaclesScenes, cloudScenes;
     SignalBus signalBus;
     Camera2D camera;
     float spawnPoint;
@@ -22,8 +22,9 @@ public partial class TestLevel : Node2D
         spawnPoint = player.GlobalPosition.X;
         camera = this.GetNode<Camera2D>("Camera2D");
 
-        obstaclesScenes = GetAllSpawnable("res://Obstacles/");
 
+        obstaclesScenes = GetAllSpawnable("res://Decorations/Obstacles/");
+        cloudScenes = GetAllSpawnable("res://Decorations/Clouds/");
         // InstantiateObstacles();
         // UIManager = GetNode<UIManager>("/root/UIManager");
         // UIManager.LoadScore(player, camera);
@@ -34,7 +35,13 @@ public partial class TestLevel : Node2D
     public override void _Process(double delta)
     {
         tileMap.GlobalPosition = new Vector2(player.GlobalPosition.X, tileMap.GlobalPosition.Y);
-        SpawnObjectAtEndOfScreen(treeRangeSpawn);
+
+        if (player.GlobalPosition.X > spawnPoint) //spawn poin is a range where player appears. So when player starts walking, It spawns a tree.
+        {
+            SpawnObjectAtEndOfScreen(treeRangeSpawn, obstaclesScenes, -60);
+            SpawnObjectAtEndOfScreen(-40, cloudScenes, rnd.Next(-200, -100));
+            spawnPoint += treeRangeSpawn; //there spawnpoint updates and player must go half of the screen to spawn another tree. The faster player goes, the faster tree spawns
+        }
 
     }
 
@@ -60,20 +67,16 @@ public partial class TestLevel : Node2D
         return pathes;
     }
 
-    private void SpawnObjectAtEndOfScreen(float range)
+    private void SpawnObjectAtEndOfScreen(float range, List<PackedScene> sceneToSpawn, float heigth)
     {
 
-        if (player.GlobalPosition.X > spawnPoint) //spawn poin is a range where player appears. So when player starts walking, It spawns a tree.
-        {
-            Area2D obstacle = (Area2D)obstaclesScenes[rnd.Next(0, obstaclesScenes.Count)].Instantiate(); //spawn random object from list
-            this.AddChild(obstacle);
-            GD.Print($"Instance of {obstacle.Name} is created");
-            float placeToSpawn = player.GlobalPosition.X + GetViewport().GetVisibleRect().Size.X; // distance to the screen edge, so trees can spawn behind the screen
-            // 5 is camera zoom, 2 is half of the screen, so I guess 5*2? I'm not sure;
-            // GD.Print($"Tree spawned at coords: {(placeToSpawn).ToString()}");
-            obstacle.GlobalPosition = new Vector2(placeToSpawn, tileMap.GlobalPosition.Y - 40); //-20 is a half of object's sprite heigth
-            spawnPoint += range; //there spawnpoint updates and player must go half of the screen to spawn another tree. The faster player goes, the faster tree spawns
-        }
+        Node2D obstacle = (Node2D)sceneToSpawn[rnd.Next(0, sceneToSpawn.Count)].Instantiate(); //spawn random object from list
+        this.AddChild(obstacle);
+        GD.Print($"Instance of {obstacle.Name} is created");
+        float placeToSpawn = player.GlobalPosition.X + GetViewport().GetVisibleRect().Size.X; // distance to the screen edge, so trees can spawn behind the screen
+                                                                                              // 5 is camera zoom, 2 is half of the screen, so I guess 5*2? I'm not sure;
+        obstacle.GlobalPosition = new Vector2(placeToSpawn, tileMap.GlobalPosition.Y + heigth); //-20 is a half of object's sprite heigth
+
 
     }
 

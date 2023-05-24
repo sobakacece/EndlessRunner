@@ -31,7 +31,13 @@ public partial class GameOverScreen : CanvasLayer
     }
     public void Restart()
     {
-        GetTree().ChangeSceneToFile("res://Levels/test_level.tscn");
         GetTree().Paused = false;
+        Node root = GetNode("/root");
+        root.RemoveChild(root.GetNode("TestLevel"));
+        PackedScene packedLevel = (PackedScene)ResourceLoader.Load("res://Levels/test_level.tscn");
+        Node2D restartlevel = (Node2D)packedLevel.Instantiate();
+        root.AddChild(restartlevel); //DID ALL OF THIS BECAUSE I NEED TO SAVE MEMORY FROM TEXTURES;
+
+        signalBus.EmitSignal(SignalBus.SignalName.Restart);
     }
 }

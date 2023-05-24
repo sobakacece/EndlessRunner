@@ -7,24 +7,26 @@ public partial class Player : CharacterBody2D
     // [Export] public float jumpVelocity = -400.0f;
     // [Export] public int MyHealth { get => 3; set => MyHealth = value; }
 
-    public int MyScore {get; set;}
+    public int PlayerHealth { get; set; }
 
     private Vector2 direction;
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
     AnimationTree animationTree;
-	AnimationNodeStateMachinePlayback playback;
+    AnimationNodeStateMachinePlayback playback;
     CharacterStateMachine stateMachine;
-
+    Damageable damageableComponent;
     public override void _Ready()
     {
         animationTree = this.GetNode<AnimationTree>("AnimationTree");
         animationTree.Active = true;
 
-		playback = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
+        playback = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
         stateMachine = this.GetNode<CharacterStateMachine>("CharacterStateMachine");
 
+        damageableComponent = this.GetNode<Damageable>("Damageable");
+        PlayerHealth = damageableComponent.MyHealth;
     }
     public override void _PhysicsProcess(double delta)
     {
@@ -32,12 +34,12 @@ public partial class Player : CharacterBody2D
 
         // Add the gravity.
         if (!IsOnFloor())
-            velocity.Y += gravity * (float)delta;       
+            velocity.Y += gravity * (float)delta;
 
         // Get the input direction and handle the movement/deceleration.
         // As good practice, you should replace UI actions with custom gameplay actions.
-        direction = Input.GetVector("left", "right", "up", "down");
-        if (direction != Vector2.Zero && stateMachine.IsMoveable() && stateMachine.CurrentState.ToString() != "Hit")
+        direction = Vector2.Right;
+        if (stateMachine.IsMoveable() && stateMachine.CurrentState.ToString() != "Hit")
         {
             velocity.X = direction.X * speed;
         }
@@ -48,7 +50,7 @@ public partial class Player : CharacterBody2D
 
         Velocity = velocity;
         MoveAndSlide();
-		AnimationUpdateParameters();
+        AnimationUpdateParameters();
     }
     public void AnimationUpdateParameters()
     {

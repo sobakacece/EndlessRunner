@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://hhlnvb1k46rw"]
+[gd_scene load_steps=3 format=3 uid="uid://hhlnvb1k46rw"]
 
 [ext_resource type="Texture2D" uid="uid://c82mrh7jnicda" path="res://Art/Retro-Lines-16x16/hp_full.png" id="1_bvi82"]
+[ext_resource type="Script" path="res://UI/HPContainer.cs" id="2_jorwi"]
 
 [node name="HP" type="TextureRect"]
 custom_minimum_size = Vector2(80, 80)
 texture = ExtResource("1_bvi82")
 expand_mode = 3
+script = ExtResource("2_jorwi")
