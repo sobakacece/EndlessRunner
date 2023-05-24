@@ -2557,7 +2557,6 @@ z_as_relative = false
 position = Vector2(-45, 31)
 scale = Vector2(3, 3)
 script = ExtResource("1_48h0g")
-treeRangeSpawn = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(200, 90)

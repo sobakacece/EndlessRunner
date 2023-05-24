@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ylqll10j7234"]
+
+[ext_resource type="Script" path="res://Decorations/TreeSpawner.cs" id="1_6rb30"]
+[ext_resource type="PackedScene" uid="uid://bkim5jlixwnv1" path="res://Decorations/Obstacles/tree_1.tscn" id="2_qccp1"]
+[ext_resource type="PackedScene" uid="uid://cr4gxkwxivgly" path="res://Decorations/Obstacles/tree_2.tscn" id="3_rqi64"]
+[ext_resource type="PackedScene" uid="uid://cl6n10ngymjii" path="res://Decorations/Obstacles/tree_3.tscn" id="4_rj88i"]
+
+[node name="TreeSpawner" type="Node2D"]
+script = ExtResource("1_6rb30")
+MyHeight = -60.0
+MySpawnRange = 400.0
+
+[node name="Tree" parent="." instance=ExtResource("2_qccp1")]
+
+[node name="Tree2" parent="." instance=ExtResource("3_rqi64")]
+
+[node name="Tree3" parent="." instance=ExtResource("4_rj88i")]
