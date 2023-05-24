@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://k0qdjn6d5lfc"]
+[gd_scene load_steps=3 format=3 uid="uid://k0qdjn6d5lfc"]
 
 [ext_resource type="Texture2D" uid="uid://dggnvuyu1segh" path="res://Art/Retro-Lines-16x16/Clouds/cloud_1.png" id="1_s1yjq"]
+[ext_resource type="Script" path="res://Decoration.cs" id="2_8ro2e"]
 
-[node name="Node2D" type="Sprite2D"]
+[node name="cloud_1" type="Sprite2D"]
 texture = ExtResource("1_s1yjq")
 flip_h = true
+script = ExtResource("2_8ro2e")
+
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-7.5, 0)
+scale = Vector2(1.75, 1)

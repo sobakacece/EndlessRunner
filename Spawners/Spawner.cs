@@ -16,13 +16,11 @@ public partial class Spawner : Node2D
         int random = rnd.Next(0, MyScenes.Count);
         for (int i = 0; i < MyScenes.Count; i++)
         {
-            GD.Print(MyScenes[i].Name);
             if (i != random)
                 this.RemoveChild(MyScenes[i]);
         }
     }
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         GD.Print("Ready");
@@ -34,12 +32,8 @@ public partial class Spawner : Node2D
         }
         PickRandom();
     }
-    public override void _EnterTree()
-    {
 
-    }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
     }

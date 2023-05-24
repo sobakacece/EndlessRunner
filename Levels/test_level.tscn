@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c54dks2kd0au7"]
+[gd_scene load_steps=7 format=3 uid="uid://dihmr1j4cpndr"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.cs" id="1_48h0g"]
 [ext_resource type="PackedScene" uid="uid://bif4rqyg2rx44" path="res://UI/UIScore.tscn" id="2_kc8fc"]
 [ext_resource type="Texture2D" uid="uid://bby23v6waklbh" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Tiles.png" id="2_ol687"]
 [ext_resource type="PackedScene" uid="uid://d4fw7ojk5cuiv" path="res://Characters/player.tscn" id="3_ef666"]
-[ext_resource type="PackedScene" uid="uid://k0qdjn6d5lfc" path="res://Decorations/Clouds/cloud_1.tscn" id="5_ghdla"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ekpe"]
 texture = ExtResource("2_ol687")
@@ -2575,6 +2574,3 @@ position = Vector2(200, 90)
 remote_path = NodePath("../../Camera2D")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_kc8fc")]
-
-[node name="Node2D" parent="." instance=ExtResource("5_ghdla")]
-position = Vector2(374, 24.6667)

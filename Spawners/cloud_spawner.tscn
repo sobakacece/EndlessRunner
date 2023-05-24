@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://fqwsvcl16ttv"]
+[gd_scene load_steps=6 format=3 uid="uid://ljm40y1t0h1y"]
 
-[ext_resource type="Script" path="res://CloudSpawner.cs" id="1_w1j67"]
+[ext_resource type="Script" path="res://Spawners/CloudSpawner.cs" id="1_w1j67"]
 [ext_resource type="PackedScene" uid="uid://k0qdjn6d5lfc" path="res://Decorations/Clouds/cloud_1.tscn" id="2_40ic8"]
 [ext_resource type="PackedScene" uid="uid://dd4d8wjj8epwy" path="res://Decorations/Clouds/cloud_2.tscn" id="3_75bk7"]
 [ext_resource type="PackedScene" uid="uid://dhaeode5s8564" path="res://Decorations/Clouds/cloud_3.tscn" id="4_3x52a"]
@@ -8,13 +8,14 @@
 
 [node name="cloud_spawner" type="Node2D"]
 script = ExtResource("1_w1j67")
+speed = 4.0
 MyHeight = -100.0
-MySpawnRange = 100.0
+MySpawnRange = 200.0
 
-[node name="Cloud1" parent="." instance=ExtResource("2_40ic8")]
+[node name="cloud_1" parent="." instance=ExtResource("2_40ic8")]
 
-[node name="Cloud2" parent="." instance=ExtResource("3_75bk7")]
+[node name="cloud_2" parent="." instance=ExtResource("3_75bk7")]
 
-[node name="Cloud3" parent="." instance=ExtResource("4_3x52a")]
+[node name="cloud_3" parent="." instance=ExtResource("4_3x52a")]
 
-[node name="Cloud4" parent="." instance=ExtResource("5_hdbpc")]
+[node name="cloud_4" parent="." instance=ExtResource("5_hdbpc")]

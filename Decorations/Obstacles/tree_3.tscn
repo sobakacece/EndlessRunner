@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cl6n10ngymjii"]
 
-[ext_resource type="Script" path="res://Decoration.cs" id="1_es4jj"]
-[ext_resource type="Texture2D" uid="uid://24o2svc40tv4" path="res://Art/Obstacles/Tree_3.png" id="2_16pgq"]
+[ext_resource type="Script" path="res://Spawners/Tree.cs" id="1_0kmr8"]
+[ext_resource type="Texture2D" uid="uid://24o2svc40tv4" path="res://Art/Obstacles/Tree_3.png" id="2_yfswe"]
 
 [node name="Tree" type="Area2D" node_paths=PackedStringArray("notifier")]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_es4jj")
-notifier = NodePath("Notifier")
+script = ExtResource("1_0kmr8")
 MyDamage = 1
+notifier = NodePath("Notifier")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 0.5)
 scale = Vector2(1, 1.02632)
-texture = ExtResource("2_16pgq")
+texture = ExtResource("2_yfswe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(4, -19, 4, 19, -4, 19, -4, -19)

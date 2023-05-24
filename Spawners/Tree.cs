@@ -2,20 +2,21 @@ using Godot;
 using System;
 using System.Linq;
 
-public partial class HurtBox : Area2D
+public partial class Tree : Decoration, IHurtBox
 {
-    // Called when the node enters the scene tree for the first time.
     [Export] public int MyDamage { get; set; }
+    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        // ConnectToArea();
+        MyDamage = 1;
+		ConnectToArea();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
     }
-    public virtual void Body_Collided(Node2D body)
+    public void Body_Collided(Node2D body)
     {
         foreach (Damageable child in body.GetChildren().OfType<Damageable>())
         {
@@ -34,12 +35,9 @@ public partial class HurtBox : Area2D
                 child.Hit(MyDamage, Vector2.Zero);
 
         }
-
-
     }
-    protected virtual void ConnectToArea()
+    public void ConnectToArea()
     {
         this.Connect("body_entered", new Callable(this, "Body_Collided"));
     }
-
 }
