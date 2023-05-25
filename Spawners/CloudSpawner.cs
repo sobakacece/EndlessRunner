@@ -11,10 +11,7 @@ public partial class CloudSpawner : Spawner
         MyHeight = this.rnd.Next(minHeigth, maxHeight);
         MyPath = "res://Spawners/cloud_spawner.tscn";
         base._Ready();
-        // foreach (Node2D child in this.GetChildren())
-        // {
-        //     GD.Print($"{this.Name} has {child.Name}");
-        // }
+
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

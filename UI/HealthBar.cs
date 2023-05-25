@@ -15,7 +15,9 @@ public partial class HealthBar : BoxContainer
     #region  ScoreVariables
     float startingPoint, currentScore;
     Label scoreLabel;
-    public const int startMod = 5;
+    public const int startMod = 5; //modifier for score
+    private float acceleration, scoreDelta; //acceleration is amount of additional speed and scoreDelta is how often it gives to Player
+    int accelerationMod = 1; //score counter
     #endregion
     Player player;
     SignalBus signalBus;
@@ -24,6 +26,9 @@ public partial class HealthBar : BoxContainer
     {
         player = (Player)GetNode("/root/TestLevel/Player");
         startingPoint = player.GlobalPosition.X;
+
+        acceleration = player.MyAccelaration;
+        scoreDelta = player.MyaccelerationDelta;
 
         healthBar = this.GetNode<BoxContainer>("HealthBar");
         scoreLabel = this.GetNode<Label>("ScoreContainer/Score");
@@ -73,11 +78,21 @@ public partial class HealthBar : BoxContainer
 
         // player.MyScore = (int)currentScore;
         scoreLabel.Text = currentScore.ToString("0000000");
+        Accelerate();
         signalBus.FinalScore = currentScore;
     }
     public void ChangeTexture(Node node, int damage)
     {
         hpList[hpList.Count - counter].Texture = hpList[hpList.Count - counter].MyemptyHPTexture;
         counter++;
+    }
+    private void Accelerate()
+    {
+        if (currentScore / scoreDelta > accelerationMod)
+        {
+            // GD.Print("Accelerated");
+            player.speed += acceleration * accelerationMod;
+            accelerationMod++;
+        }
     }
 }

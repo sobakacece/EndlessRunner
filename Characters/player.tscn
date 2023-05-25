@@ -312,7 +312,7 @@ moveable = true
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "deadState", "returnState")]
 script = ExtResource("7_fitdc")
-knockbackSpeed = Vector2(300, 0)
+knockbackSpeed = Vector2(500, 0)
 damageable = NodePath("../../Damageable")
 deadState = NodePath("../Dead")
 returnState = NodePath("../Ground")
@@ -324,7 +324,6 @@ wait_time = 0.4
 script = ExtResource("9_0vf5k")
 
 [node name="StateDebug" type="Label" parent="."]
-visible = false
 offset_left = -22.0
 offset_top = -22.0
 offset_right = 27.0

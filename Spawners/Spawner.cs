@@ -23,7 +23,7 @@ public partial class Spawner : Node2D
 
     public override void _Ready()
     {
-        GD.Print("Ready");
+        // GD.Print("Ready");
 		player = (Player)GetNode("/root/TestLevel/Player");
         MyScenes = new List<Node2D>();
         foreach (Node2D child in this.GetChildren().OfType<Node2D>())

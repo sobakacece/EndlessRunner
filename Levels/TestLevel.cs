@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO CREATE CLASS OF SPAWNER. ADD PROPERTIES RANGE, HEIGTH AND METHOD TO MAKE VISIBLE ON OF SPRITES. THEN PROCESS THERE WILL SPAWN ALL SPAWNERS.
+//TODO Jump dependencie from time SPACE was held, add more spawners, fix bug with clouds moving backwards
 public partial class TestLevel : Node2D
 {
     private Player player;
@@ -68,8 +68,9 @@ public partial class TestLevel : Node2D
         if (player.GlobalPosition.X - spawner.SpawnPoint >= spawner.MySpawnRange) //spawn poin is a range where player appears. So when player starts walking, It spawns a tree.
         {
             this.AddChild(spawner);
-            float placeToSpawn = player.GlobalPosition.X + GetViewport().GetVisibleRect().Size.X; // distance to the screen edge, so trees can spawn behind the screen
-                                                                                                  // 5 is camera zoom, 2 is half of the screen, so I guess 5*2? I'm not sure;
+            float placeToSpawn = player.GlobalPosition.X + GetViewport().GetVisibleRect().Size.X / 2 + 10; // distance to the screen edge, so trees can spawn behind the screen
+                                                                                                  // player is aprox at the center of the screen, so we need only half of it, so we divide on 2.
+                                                                                                  // 10 is an offset to spawn behind the border and not on it
             spawner.GlobalPosition = new Vector2(placeToSpawn, tileMap.GlobalPosition.Y + spawner.MyHeight); //-20 is a half of object's sprite heigth
             spawnerList[spawnerCounter] = InstantiateSpawner(spawner.MyPath);
         }

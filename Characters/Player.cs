@@ -4,8 +4,6 @@ using System;
 public partial class Player : CharacterBody2D
 {
     [Export] public float speed = 300.0f;
-    // [Export] public float jumpVelocity = -400.0f;
-    // [Export] public int MyHealth { get => 3; set => MyHealth = value; }
 
     public int PlayerHealth { get; set; }
 
@@ -17,6 +15,10 @@ public partial class Player : CharacterBody2D
     AnimationNodeStateMachinePlayback playback;
     CharacterStateMachine stateMachine;
     Damageable damageableComponent;
+    private float acceleration = 20, accelerationDelta = 1000;
+    [Export] public float MyAccelaration { get => acceleration; set => acceleration = value; } //How much accelerates
+    [Export] public float MyaccelerationDelta { get => accelerationDelta; set => accelerationDelta = value; } // How often accelerates
+    [Export] public float lowJumpMultiplier = 10;
     public override void _Ready()
     {
         animationTree = this.GetNode<AnimationTree>("AnimationTree");
@@ -33,15 +35,22 @@ public partial class Player : CharacterBody2D
         Vector2 velocity = Velocity;
 
         // Add the gravity.
+        // velocity.Y += gravity;
+        // GD.Print($"Player Velocit.Y{velocity.Y}");
         if (!IsOnFloor())
             velocity.Y += gravity * (float)delta;
+        // else if ( Input.IsActionJustReleased("jump"))
+        // {
+        //     GD.Print("RELEASE");
+        //     velocity += Vector2.Up * gravity * (float)delta * 100;
+        // }
 
-        // Get the input direction and handle the movement/deceleration.
-        // As good practice, you should replace UI actions with custom gameplay actions.
+
         direction = Vector2.Right;
         if (stateMachine.IsMoveable() && stateMachine.CurrentState.ToString() != "Hit")
         {
             velocity.X = direction.X * speed;
+            // GD.Print($"Velocity: {velocity.X}, Delta: {(int)delta}");
         }
         else if (stateMachine.CurrentState.ToString() != "Hit")
         {
