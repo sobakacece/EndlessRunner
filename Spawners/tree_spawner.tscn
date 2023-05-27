@@ -1,19 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://mlo3t8g12npp"]
+[gd_scene load_steps=6 format=3 uid="uid://mlo3t8g12npp"]
 
 [ext_resource type="Script" path="res://Spawners/TreeSpawner.cs" id="1_dyjyj"]
 [ext_resource type="PackedScene" uid="uid://bkim5jlixwnv1" path="res://Decorations/Obstacles/tree_1.tscn" id="2_qccp1"]
 [ext_resource type="PackedScene" uid="uid://cr4gxkwxivgly" path="res://Decorations/Obstacles/tree_2.tscn" id="3_rqi64"]
 [ext_resource type="PackedScene" uid="uid://cl6n10ngymjii" path="res://Decorations/Obstacles/tree_3.tscn" id="4_rj88i"]
+[ext_resource type="PackedScene" uid="uid://l4qn6b6cxbpk" path="res://Decorations/Obstacles/bee.tscn" id="5_3prgx"]
 
 [node name="TreeSpawner" type="Node2D"]
 script = ExtResource("1_dyjyj")
-minRange = 200
-maxRange = 300
+minRange = 250
+maxRange = 350
 MyHeight = -60.0
-MySpawnRange = 250.0
+MySpawnRange = 300.0
 
 [node name="Tree" parent="." instance=ExtResource("2_qccp1")]
 
 [node name="Tree2" parent="." instance=ExtResource("3_rqi64")]
 
 [node name="Tree3" parent="." instance=ExtResource("4_rj88i")]
+
+[node name="Bee" parent="." instance=ExtResource("5_3prgx")]
+position = Vector2(0, -34)

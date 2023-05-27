@@ -1,24 +1,45 @@
 using Godot;
 using System;
 using System.Linq;
-
-public partial class Tree : Despawnable, IHurtBox
+public partial class Bee : Area2D, IHurtBox
 {
+    private AnimationNodeStateMachinePlayback playback;
+    private AnimationTree animationTree;
+    private SignalBus signalBus;
+    private Damageable damageableComponent;
     [Export] public int MyDamage { get; set; }
     public Vector2 MyGlobalPosition { get; set; }
-    // Called when the node enters the scene tree for the first time.
+    [Export] private float speed, distanceThreshold;
+	private Vector2 spawnPoint, direction = Vector2.Down;
     public override void _Ready()
     {
-        MyGlobalPosition = this.GlobalPosition;
-        MyDamage = 1;
-        ConnectToArea();
+		MyDamage = 1;
+		ConnectToArea();
+		spawnPoint = this.GlobalPosition;
+        signalBus = GetNode<SignalBus>("/root/SignalBus");
+
+        animationTree = GetNode<AnimationTree>("AnimationTree");
+        playback = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
+
+        damageableComponent = GetNode<Damageable>("Damageable");
+        damageableComponent.OnHit += GetShot;
+
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+		this.GlobalPosition += direction * speed;
+		if (spawnPoint.DistanceTo(this.GlobalPosition) >= distanceThreshold)
+		{
+			direction = -direction;
+			spawnPoint = this.GlobalPosition;
+		}
     }
-
+    public void GetShot(Node2D body, int damage, Vector2 knockbackDirection)
+    {
+        playback.Travel("dead");
+    }
     public void ConnectToArea()
     {
         this.Connect("body_entered", new Callable(this, "Body_Collided"));
@@ -43,5 +64,6 @@ public partial class Tree : Despawnable, IHurtBox
 
         }
     }
+
 
 }

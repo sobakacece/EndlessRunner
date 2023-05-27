@@ -28,7 +28,7 @@ public partial class AttackState : State
         Bullet bullet = (Bullet)bulletScene.Instantiate();
         this.AddChild(bullet);
         bullet.MyTarget = MyCharacter.GetGlobalMousePosition() - MyCharacter.GlobalPosition;
-        GD.Print($"Target is {bullet.MyTarget}, player is {MyCharacter.GlobalPosition}");
+        // GD.Print($"Target is {bullet.MyTarget}, player is {MyCharacter.GlobalPosition}");
         bullet.GlobalPosition = MyCharacter.GlobalPosition + GetNode<Marker2D>("BulletSpawner").GlobalPosition;
         // GD.Print($"Player position {MyCharacter.GlobalPosition} Bullet position {bullet.GlobalPosition}");
     }

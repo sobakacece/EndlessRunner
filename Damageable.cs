@@ -31,6 +31,10 @@ public partial class Damageable : Node
     {
         MyHealth -= damage;
         // GD.Print("Damage: " + damage);
+        if (GetParent() is Bee)
+        {
+            GD.Print("Bee Hurted");
+        }
         EmitSignal(SignalName.OnHit, GetParent(), damage, knockbackDirection);
         if (MyHealth <= 0)
         {

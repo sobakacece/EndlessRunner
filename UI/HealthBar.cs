@@ -83,8 +83,11 @@ public partial class HealthBar : BoxContainer
     }
     public void ChangeTexture(Node node, int damage)
     {
-        hpList[hpList.Count - counter].Texture = hpList[hpList.Count - counter].MyemptyHPTexture;
-        counter++;
+        if (node is Player)
+        {
+            hpList[hpList.Count - counter].Texture = hpList[hpList.Count - counter].MyemptyHPTexture;
+            counter++;
+        }
     }
     private void Accelerate()
     {
