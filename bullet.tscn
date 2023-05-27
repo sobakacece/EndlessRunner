@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct80dbuvqkep6"]
+
+[ext_resource type="Script" path="res://Bullet.cs" id="1_iy7ah"]
+[ext_resource type="Texture2D" uid="uid://c64rjaihfpooc" path="res://Art/Retro-Lines-16x16/bullet.png" id="2_qe6ix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jacx6"]
+size = Vector2(6, 6)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_iy7ah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_qe6ix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jacx6")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.27835, 0.248381)

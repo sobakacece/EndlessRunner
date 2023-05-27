@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Decoration : Node2D
+public partial class Despawnable : Node2D
 {
     [Export] VisibleOnScreenNotifier2D notifier;
     public override void _Ready()

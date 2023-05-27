@@ -2559,7 +2559,6 @@ script = ExtResource("1_48h0g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(200, 90)
-rotation = -1.5708
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(154, 97.3333)

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 
-public partial class Tree : Decoration, IHurtBox
+public partial class Tree : Despawnable, IHurtBox
 {
     [Export] public int MyDamage { get; set; }
     // Called when the node enters the scene tree for the first time.
