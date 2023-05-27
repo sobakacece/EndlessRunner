@@ -10,15 +10,14 @@ public partial class Player : CharacterBody2D
     private Vector2 direction;
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-
     AnimationTree animationTree;
     AnimationNodeStateMachinePlayback playback;
     CharacterStateMachine stateMachine;
     Damageable damageableComponent;
     private float acceleration = 20, accelerationDelta = 1000;
     [Export] public float MyAccelaration { get => acceleration; set => acceleration = value; } //How much accelerates
-    [Export] public float MyaccelerationDelta { get => accelerationDelta; set => accelerationDelta = value; } // How often accelerates
-    [Export] public float lowJumpMultiplier = 10;
+    [Export] public float MyAccelerationDelta { get => accelerationDelta; set => accelerationDelta = value; } // How often accelerates
+    [Export] public float MyJumpVelocity { get; set; }
     public override void _Ready()
     {
         animationTree = this.GetNode<AnimationTree>("AnimationTree");
@@ -36,6 +35,8 @@ public partial class Player : CharacterBody2D
 
         // Add the gravity.
         // velocity.Y += gravity;
+
+		// GD.Print($"Player Velocity X:{Velocity}");
         // GD.Print($"Player Velocit.Y{velocity.Y}");
         if (!IsOnFloor())
             velocity.Y += gravity * (float)delta;

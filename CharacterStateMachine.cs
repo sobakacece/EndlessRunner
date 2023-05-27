@@ -7,9 +7,9 @@ public partial class CharacterStateMachine : Node
     public Dictionary<string, State> stateList;
     [Export]
     private AnimationTree animationTree;
-    private CharacterBody2D character;
+    private Player character;
     [Export]
-    public CharacterBody2D MyBody
+    public Player MyBody
     {
         get => character;
         set => character = value;
@@ -37,7 +37,6 @@ public partial class CharacterStateMachine : Node
             child.MyAnimationTree = animationTree;
 
             stateList.Add(child.ToString(), child);
-            //connect to interrupt signal
             child.InterruptState += OnInterruption;
         }
         base._EnterTree();

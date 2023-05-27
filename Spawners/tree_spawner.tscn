@@ -7,8 +7,10 @@
 
 [node name="TreeSpawner" type="Node2D"]
 script = ExtResource("1_dyjyj")
+minRange = 200
+maxRange = 300
 MyHeight = -60.0
-MySpawnRange = 200.0
+MySpawnRange = 250.0
 
 [node name="Tree" parent="." instance=ExtResource("2_qccp1")]
 

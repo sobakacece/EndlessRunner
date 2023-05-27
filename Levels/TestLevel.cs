@@ -65,14 +65,12 @@ public partial class TestLevel : Node2D
     private void Spawn(Spawner spawner)
     {
 
-        if (player.GlobalPosition.X - spawner.SpawnPoint >= spawner.MySpawnRange) //spawn poin is a range where player appears. So when player starts walking, It spawns a tree.
+        if (player.GlobalPosition.X - spawner.SpawnPoint >= spawner.MySpawnRange) //If player passed spawnRange
         {
             this.AddChild(spawner);
-            float placeToSpawn = player.GlobalPosition.X + GetViewport().GetVisibleRect().Size.X / 2 + 10; // distance to the screen edge, so trees can spawn behind the screen
-                                                                                                  // player is aprox at the center of the screen, so we need only half of it, so we divide on 2.
-                                                                                                  // 10 is an offset to spawn behind the border and not on it
-            spawner.GlobalPosition = new Vector2(placeToSpawn, tileMap.GlobalPosition.Y + spawner.MyHeight); //-20 is a half of object's sprite heigth
-            spawnerList[spawnerCounter] = InstantiateSpawner(spawner.MyPath);
+            float placeToSpawn = player.GlobalPosition.X + GetViewport().GetVisibleRect().Size.X / 2 + spawner.MySpawnRange; //player position + outside of screen + range
+            spawner.GlobalPosition = new Vector2(placeToSpawn, tileMap.GlobalPosition.Y + spawner.MyHeight); //floor + custom height
+            spawnerList[spawnerCounter] = InstantiateSpawner(spawner.MyPath); //instanciate new spawner with new parameters (spawnPoint, Range, e.t.c) and replace them
         }
 
 
@@ -81,7 +79,7 @@ public partial class TestLevel : Node2D
     {
         PackedScene scene = (PackedScene)ResourceLoader.Load(path);
         Spawner spawner = (Spawner)scene.Instantiate();
-        spawner.SpawnPoint = player.GlobalPosition.X + spawner.MySpawnRange;
+        spawner.SpawnPoint = player.GlobalPosition.X + spawner.MySpawnRange; //stores old position of player
         return spawner;
     }
 }

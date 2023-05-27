@@ -28,7 +28,7 @@ public partial class HealthBar : BoxContainer
         startingPoint = player.GlobalPosition.X;
 
         acceleration = player.MyAccelaration;
-        scoreDelta = player.MyaccelerationDelta;
+        scoreDelta = player.MyAccelerationDelta;
 
         healthBar = this.GetNode<BoxContainer>("HealthBar");
         scoreLabel = this.GetNode<Label>("ScoreContainer/Score");

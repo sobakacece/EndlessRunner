@@ -3,45 +3,41 @@ using System;
 
 public partial class GroundState : State
 {
-    [Export] public float jumpVelocity;
+    [Export] public float jumpHolding = -25, jumpThreshold = -600;
+    private float jumpVelocity;
     [Export] State airState;
-    public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        jumpVelocity = MyCharacter.MyJumpVelocity;
         airState = MyStateMachine.GetNode<State>("Air");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-
+        // if (Input.IsActionPressed("jump") && jumpVelocity <= jumpThreshold)
+        // {
+        //     jumpVelocity+= jumpHolding;
+        // }
     }
     public override void StateInput(InputEvent @event)
     {
-        if (@event.IsActionPressed("jump"))
+        if (@event.IsActionReleased("jump"))
         {
             Jump();
         }
     }
     public override void StateProcess(double delta)
     {
-        // base.StateProcess(delta);
+        if (Input.IsActionPressed("jump") && jumpVelocity > jumpThreshold)
+        {
+            GD.Print(jumpVelocity);
+            jumpVelocity -= jumpHolding;
+        }
 
-        // if (MyCharacter.Velocity.Y > 0)
-        //     velocity.Y += gravity * (float)delta;
-        // else if (MyCharacter.Velocity.Y < 0 && Input.IsActionJustReleased("jump"))
-        // {
-        //     GD.Print("RELEASE");
-        //     velocity += Vector2.Up * gravity * (float)delta * 100;
-        // }
 
-        // if (Input.IsActionJustPressed("jump"))
-        // {
-        //     velocity += Vector2.Up * gravity * jumpVelocity;
-
-        // }
     }
     public override void OnEnter()
     {
@@ -50,6 +46,7 @@ public partial class GroundState : State
     public void Jump()
     {
         MyCharacter.Velocity = new Vector2(0, jumpVelocity);
+        jumpVelocity = MyCharacter.MyJumpVelocity; //returning jumpVelocity to default
         playback.Travel("jump");
         nextState = airState;
     }

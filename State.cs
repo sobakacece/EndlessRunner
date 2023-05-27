@@ -8,7 +8,7 @@ public partial class State : Node
     // private bool moveable = true;
     [Export]
     public bool moveable;
-    public CharacterBody2D MyCharacter { get; set; }
+    public Player MyCharacter { get; set; }
     public CharacterStateMachine MyStateMachine {get; set; }
     public AnimationTree MyAnimationTree {get; set; }
     public Vector2 velocity;
