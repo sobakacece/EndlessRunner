@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bl83yygs4h84n" path="res://Art/Obstacles/Tree_2.png" id="2_ld12t"]
 
 [node name="Tree" type="Area2D" node_paths=PackedStringArray("notifier")]
+scale = Vector2(0.8, 0.8)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_eygm8")

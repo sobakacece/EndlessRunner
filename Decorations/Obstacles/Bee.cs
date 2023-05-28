@@ -9,13 +9,13 @@ public partial class Bee : Area2D, IHurtBox
     private Damageable damageableComponent;
     [Export] public int MyDamage { get; set; }
     public Vector2 MyGlobalPosition { get; set; }
-    [Export] private float speed, distanceThreshold;
-	private Vector2 spawnPoint, direction = Vector2.Down;
+    // [Export] private float speed, distanceThreshold;
+	// private Vector2 spawnPoint, direction = Vector2.Down;
     public override void _Ready()
     {
 		MyDamage = 1;
 		ConnectToArea();
-		spawnPoint = this.GlobalPosition;
+		// spawnPoint = this.GlobalPosition;
         signalBus = GetNode<SignalBus>("/root/SignalBus");
 
         animationTree = GetNode<AnimationTree>("AnimationTree");
@@ -29,12 +29,12 @@ public partial class Bee : Area2D, IHurtBox
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-		this.GlobalPosition += direction * speed;
-		if (spawnPoint.DistanceTo(this.GlobalPosition) >= distanceThreshold)
-		{
-			direction = -direction;
-			spawnPoint = this.GlobalPosition;
-		}
+		// this.GlobalPosition += direction * speed;
+		// if (spawnPoint.DistanceTo(this.GlobalPosition) >= distanceThreshold)
+		// {
+		// 	direction = -direction;
+		// 	spawnPoint = this.GlobalPosition;
+		// }
     }
     public void GetShot(Node2D body, int damage, Vector2 knockbackDirection)
     {

@@ -2576,4 +2576,6 @@ remote_path = NodePath("../../Camera2D")
 [node name="PlayerUI" parent="." instance=ExtResource("2_kc8fc")]
 
 [node name="Bee" parent="." instance=ExtResource("5_o7udt")]
-position = Vector2(270.333, 36)
+position = Vector2(240, 79)
+speed = 10.0
+distanceThreshold = 150.0

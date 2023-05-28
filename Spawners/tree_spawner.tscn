@@ -10,7 +10,7 @@
 script = ExtResource("1_dyjyj")
 minRange = 250
 maxRange = 350
-MyHeight = -60.0
+MyHeight = -48.0
 MySpawnRange = 300.0
 
 [node name="Tree" parent="." instance=ExtResource("2_qccp1")]
@@ -20,4 +20,6 @@ MySpawnRange = 300.0
 [node name="Tree3" parent="." instance=ExtResource("4_rj88i")]
 
 [node name="Bee" parent="." instance=ExtResource("5_3prgx")]
-position = Vector2(0, -34)
+position = Vector2(1, -20)
+speed = 10.0
+distanceThreshold = 100.0
