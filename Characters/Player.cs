@@ -14,12 +14,16 @@ public partial class Player : CharacterBody2D
     AnimationNodeStateMachinePlayback playback;
     CharacterStateMachine stateMachine;
     Damageable damageableComponent;
+    PackedScene gamePausedScreen;
     private float acceleration = 10, accelerationDelta = 1000;
     [Export] public float MyAccelaration { get => acceleration; set => acceleration = value; } //How much accelerates
     [Export] public float MyAccelerationDelta { get => accelerationDelta; set => accelerationDelta = value; } // How often accelerates
     [Export] public float MyJumpVelocity { get; set; }
     public override void _Ready()
     {
+        gamePausedScreen = (PackedScene)ResourceLoader.Load("res://UI/GamePauseScreen.tscn");
+
+
         animationTree = this.GetNode<AnimationTree>("AnimationTree");
         animationTree.Active = true;
 
@@ -33,18 +37,9 @@ public partial class Player : CharacterBody2D
     {
         Vector2 velocity = Velocity;
 
-        // Add the gravity.
-        // velocity.Y += gravity;
-
-        // GD.Print($"Player Velocity X:{Velocity}");
-        // GD.Print($"Player Velocit.Y{velocity.Y}");
         if (!IsOnFloor())
             velocity.Y += gravity * (float)delta;
-        // else if ( Input.IsActionJustReleased("jump"))
-        // {
-        //     GD.Print("RELEASE");
-        //     velocity += Vector2.Up * gravity * (float)delta * 100;
-        // }
+
 
 
         direction = Vector2.Right;
@@ -52,10 +47,6 @@ public partial class Player : CharacterBody2D
         {
             velocity.X = Mathf.MoveToward(Velocity.X, direction.X * speed, speed);
         }
-        // else if (stateMachine.CurrentState.ToString() == "Hit")
-        // {
-        //     velocity.X = Mathf.MoveToward(Velocity.X, -direction.X * speed, speed/ 10);
-        // }
 
         Velocity = velocity;
         MoveAndSlide();
@@ -65,5 +56,15 @@ public partial class Player : CharacterBody2D
     {
         animationTree.Set("parameters/move/blend_position", direction.X);
 
+    }
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("pause") && GetTree().Paused == false)
+        {
+            GameScreen gamePaused = (GameScreen)gamePausedScreen.Instantiate();
+            this.Owner.AddChild(gamePaused);
+            GetTree().Paused = true;
+            gamePaused.Visible = true;
+        }
     }
 }

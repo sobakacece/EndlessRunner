@@ -2,7 +2,8 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO  fix bug with clouds moving backwards, pause screen, UI animations?, decrease possible angle of attack, best score, level change, change death animation, aim assist?, double jump?, grass spawner?
+//TODO LEVEL CHANGE, DEATH ANIM, fix bug with clouds moving backwards,  UI animations?, decrease possible angle of attack? || change facing direction?, best score, aim assist?
+// double jump?,"esc" to unpause
 public partial class TestLevel : Node2D
 {
     private Player player;

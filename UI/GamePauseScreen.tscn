@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bihkbc5n4cqrd"]
+
+[ext_resource type="Script" path="res://UI/GamePauseScreen.cs" id="1_ud68f"]
+[ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_12swa"]
+[ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_h17et"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
+bg_color = Color(0, 0, 0, 0.407843)
+border_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("continueButton", "restartButton", "quitButton")]
+process_mode = 3
+layer = 3
+script = ExtResource("1_ud68f")
+continueButton = NodePath("Overlay/VBoxContainer/ContinueButton")
+restartButton = NodePath("Overlay/VBoxContainer/RestartButton")
+quitButton = NodePath("Overlay/VBoxContainer/QuitButton")
+
+[node name="Overlay" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ljes")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -27.5
+offset_right = 4.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+text = "Game Paused"
+label_settings = ExtResource("2_12swa")
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="ContinueButton" type="Button" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_h17et")
+theme_override_font_sizes/font_size = 36
+text = "Continue"
+
+[node name="RestartButton" type="Button" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_h17et")
+theme_override_font_sizes/font_size = 36
+text = "Restart"
+
+[node name="OptionsButton" type="Button" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_h17et")
+theme_override_font_sizes/font_size = 36
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_h17et")
+theme_override_font_sizes/font_size = 36
+text = "Quit"

@@ -392,6 +392,7 @@ moveable = true
 position = Vector2(9, 0)
 
 [node name="StateDebug" type="Label" parent="."]
+visible = false
 offset_left = -22.0
 offset_top = -22.0
 offset_right = 27.0

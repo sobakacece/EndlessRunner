@@ -9,13 +9,13 @@
 bg_color = Color(0, 0, 0, 0.407843)
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
 
-[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("restartButton", "quitButton", "scoreLabel")]
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("scoreLabel", "restartButton", "quitButton")]
 process_mode = 2
 layer = 3
 script = ExtResource("1_gkhc5")
+scoreLabel = NodePath("Overlay/VBoxContainer/ScoreLabel")
 restartButton = NodePath("Overlay/VBoxContainer/RestartButton")
 quitButton = NodePath("Overlay/VBoxContainer/QuitButton")
-scoreLabel = NodePath("Overlay/VBoxContainer/ScoreLabel")
 
 [node name="Overlay" type="Panel" parent="."]
 anchors_preset = 15

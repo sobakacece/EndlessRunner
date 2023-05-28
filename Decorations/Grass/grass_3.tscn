@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://brny2eupn64g"]
+
+[ext_resource type="Texture2D" uid="uid://dtvxjjpgyr1oh" path="res://Art/Retro-Lines-16x16/With-Background/grass_3.png" id="1_s5ili"]
+[ext_resource type="Script" path="res://Decorations/Grass/Grass.cs" id="2_urda0"]
+
+[node name="grass_3" type="Sprite2D"]
+texture = ExtResource("1_s5ili")
+flip_h = true
+script = ExtResource("2_urda0")
+MyHeight = -300.0
+RangeOfRandom = 100
+
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(9, 0)
+scale = Vector2(7.0284, 1)
