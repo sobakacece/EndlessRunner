@@ -331,7 +331,7 @@ font_size = 10
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_8xylo")
 MyJumpVelocity = -400.0
 
@@ -340,7 +340,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_i368i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_slokw")
+texture = ExtResource("2_llusw")
 hframes = 2
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -373,13 +373,13 @@ moveable = true
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "deadState", "returnState")]
 script = ExtResource("7_fitdc")
-knockbackSpeed = Vector2(500, 0)
+knockbackSpeed = Vector2(400, 0)
 damageable = NodePath("../../Damageable")
 deadState = NodePath("../Dead")
 returnState = NodePath("../Ground")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
-wait_time = 0.4
+wait_time = 0.6
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_0vf5k")
@@ -389,7 +389,7 @@ script = ExtResource("11_newjm")
 moveable = true
 
 [node name="BulletSpawner" type="Marker2D" parent="CharacterStateMachine/Attack"]
-position = Vector2(19, -5)
+position = Vector2(9, 0)
 
 [node name="StateDebug" type="Label" parent="."]
 offset_left = -22.0

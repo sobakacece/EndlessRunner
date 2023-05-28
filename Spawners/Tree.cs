@@ -2,9 +2,10 @@ using Godot;
 using System;
 using System.Linq;
 
-public partial class Tree : Despawnable, IHurtBox
+public partial class Tree : HurtBox, IDespawnable
 {
-    [Export] public int MyDamage { get; set; }
+    public VisibleOnScreenNotifier2D notifier {get; set;}
+    [Export] public override int MyDamage { get; set; }
     public Vector2 MyGlobalPosition { get; set; }
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -12,6 +13,7 @@ public partial class Tree : Despawnable, IHurtBox
         MyGlobalPosition = this.GlobalPosition;
         MyDamage = 1;
         ConnectToArea();
+        ConnectToNotifier();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,29 +21,21 @@ public partial class Tree : Despawnable, IHurtBox
     {
     }
 
-    public void ConnectToArea()
+
+    public override void Body_Collided(Godot.Node2D body)
     {
-        this.Connect("body_entered", new Callable(this, "Body_Collided"));
+        base.Body_Collided(body);
     }
-    public void Body_Collided(Godot.Node2D body)
+    public void Despawn()
     {
-        foreach (Damageable child in body.GetChildren().OfType<Damageable>())
-        {
-            Vector2 directionToTarget = body.GlobalPosition - this.GlobalPosition;
-            if (directionToTarget.X > 0 && child.Knockable) // > than half of sword hitbox?
-            {
-                child.Hit(MyDamage, Vector2.Right);
+        // GD.Print("Tree despawmed");
+        GetParent().QueueFree();
 
-            }
-            else if (directionToTarget.X < 0 && child.Knockable)
-            {
-                child.Hit(MyDamage, Vector2.Left);
-
-            }
-            else
-                child.Hit(MyDamage, Vector2.Zero);
-
-        }
+    }
+    public void ConnectToNotifier()
+    {
+        notifier = GetNode<VisibleOnScreenNotifier2D>("Notifier");
+        notifier.Connect("screen_exited", new Callable(this, "Despawn"));
     }
 
 }

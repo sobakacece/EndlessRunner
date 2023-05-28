@@ -1,13 +1,14 @@
 using Godot;
 using System;
 using System.Linq;
-public partial class Bee : Area2D, IHurtBox
+public partial class Bee : HurtBox, IDespawnable
 {
+    public VisibleOnScreenNotifier2D notifier {get; set;}
     private AnimationNodeStateMachinePlayback playback;
     private AnimationTree animationTree;
     private SignalBus signalBus;
     private Damageable damageableComponent;
-    [Export] public int MyDamage { get; set; }
+    [Export] public override int MyDamage { get; set; }
     public Vector2 MyGlobalPosition { get; set; }
     // [Export] private float speed, distanceThreshold;
 	// private Vector2 spawnPoint, direction = Vector2.Down;
@@ -40,29 +41,23 @@ public partial class Bee : Area2D, IHurtBox
     {
         playback.Travel("dead");
     }
-    public void ConnectToArea()
+    protected override void ConnectToArea()
     {
-        this.Connect("body_entered", new Callable(this, "Body_Collided"));
+        base.ConnectToArea();
     }
-    public void Body_Collided(Godot.Node2D body)
+    public override void Body_Collided(Godot.Node2D body)
     {
-        foreach (Damageable child in body.GetChildren().OfType<Damageable>())
-        {
-            Vector2 directionToTarget = body.GlobalPosition - this.GlobalPosition;
-            if (directionToTarget.X > 0 && child.Knockable) // > than half of sword hitbox?
-            {
-                child.Hit(MyDamage, Vector2.Right);
-
-            }
-            else if (directionToTarget.X < 0 && child.Knockable)
-            {
-                child.Hit(MyDamage, Vector2.Left);
-
-            }
-            else
-                child.Hit(MyDamage, Vector2.Zero);
-
-        }
+        base.Body_Collided(body);
+    }
+    public void ConnectToNotifier()
+    {
+        
+        notifier = GetNode<VisibleOnScreenNotifier2D>("Notifier");
+        notifier.Connect("screen_exited", new Callable(this, "Despawn"));
+    }
+    public void Despawn()
+    {
+        playback.Travel("dead");
     }
 
 

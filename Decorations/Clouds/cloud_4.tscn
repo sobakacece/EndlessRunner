@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://beap127f2kbv5"]
 
 [ext_resource type="Texture2D" uid="uid://veq5sudgw6hf" path="res://Art/Retro-Lines-16x16/Clouds/cloud_4.png" id="1_csbwk"]
-[ext_resource type="Script" path="res://Despawnable.cs" id="2_xghfn"]
+[ext_resource type="Script" path="res://Decorations/Clouds/Cloud.cs" id="2_4hnlt"]
 
 [node name="cloud_4" type="Sprite2D"]
 texture = ExtResource("1_csbwk")
 flip_h = true
-script = ExtResource("2_xghfn")
+script = ExtResource("2_4hnlt")
 
 [node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-11, 0)

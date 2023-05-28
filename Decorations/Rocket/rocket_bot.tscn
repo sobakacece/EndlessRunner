@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://l4qn6b6cxbpk"]
+[gd_scene load_steps=16 format=3 uid="uid://b7c6p0cekyhco"]
 
-[ext_resource type="Texture2D" uid="uid://svfolhpw4t0m" path="res://Art/Retro-Lines-16x16/With-Background/bee_hit.png" id="1_d0xu2"]
-[ext_resource type="Script" path="res://Decorations/Obstacles/Bee.cs" id="1_x4dw7"]
-[ext_resource type="Script" path="res://Damageable.cs" id="2_glq3v"]
-[ext_resource type="Texture2D" uid="uid://cpsgpp3uymtvs" path="res://Art/Retro-Lines-16x16/With-Background/bee.png" id="3_oi8ky"]
+[ext_resource type="Script" path="res://Decorations/Rocket/Rocket.cs" id="1_p0t4b"]
+[ext_resource type="Texture2D" uid="uid://be0r7i47k70ug" path="res://Art/Retro-Lines-16x16/rocket_bot_hit.png" id="2_xt10b"]
+[ext_resource type="Script" path="res://Damageable.cs" id="3_uide3"]
+[ext_resource type="Texture2D" uid="uid://dw3x6cvygwvl8" path="res://Art/Retro-Lines-16x16/rocket_bot.png" id="4_6cmbe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8a50"]
 radius = 7.0
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_d0xu2")]
+"values": [ExtResource("2_xt10b")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_oi8ky")]
+"values": [ExtResource("4_6cmbe")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -131,21 +131,21 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ckiyf"]
 
-[node name="Bee" type="Area2D"]
+[node name="Rocket" type="Area2D"]
 collision_layer = 4
 collision_mask = 10
-script = ExtResource("1_x4dw7")
+script = ExtResource("1_p0t4b")
 MyDamage = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_oi8ky")
+texture = ExtResource("4_6cmbe")
 hframes = 4
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o8a50")
 
 [node name="Damageable" type="Node" parent="."]
-script = ExtResource("2_glq3v")
+script = ExtResource("3_uide3")
 health = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

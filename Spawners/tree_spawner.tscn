@@ -21,5 +21,3 @@ MySpawnRange = 300.0
 
 [node name="Bee" parent="." instance=ExtResource("5_3prgx")]
 position = Vector2(1, -20)
-speed = 10.0
-distanceThreshold = 100.0

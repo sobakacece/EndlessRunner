@@ -14,7 +14,7 @@ public partial class Player : CharacterBody2D
     AnimationNodeStateMachinePlayback playback;
     CharacterStateMachine stateMachine;
     Damageable damageableComponent;
-    private float acceleration = 20, accelerationDelta = 1000;
+    private float acceleration = 10, accelerationDelta = 1000;
     [Export] public float MyAccelaration { get => acceleration; set => acceleration = value; } //How much accelerates
     [Export] public float MyAccelerationDelta { get => accelerationDelta; set => accelerationDelta = value; } // How often accelerates
     [Export] public float MyJumpVelocity { get; set; }
@@ -36,7 +36,7 @@ public partial class Player : CharacterBody2D
         // Add the gravity.
         // velocity.Y += gravity;
 
-		// GD.Print($"Player Velocity X:{Velocity}");
+        // GD.Print($"Player Velocity X:{Velocity}");
         // GD.Print($"Player Velocit.Y{velocity.Y}");
         if (!IsOnFloor())
             velocity.Y += gravity * (float)delta;
@@ -50,13 +50,12 @@ public partial class Player : CharacterBody2D
         direction = Vector2.Right;
         if (stateMachine.IsMoveable() && stateMachine.CurrentState.ToString() != "Hit")
         {
-            velocity.X = direction.X * speed;
-            // GD.Print($"Velocity: {velocity.X}, Delta: {(int)delta}");
+            velocity.X = Mathf.MoveToward(Velocity.X, direction.X * speed, speed);
         }
-        else if (stateMachine.CurrentState.ToString() != "Hit")
-        {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
-        }
+        // else if (stateMachine.CurrentState.ToString() == "Hit")
+        // {
+        //     velocity.X = Mathf.MoveToward(Velocity.X, -direction.X * speed, speed/ 10);
+        // }
 
         Velocity = velocity;
         MoveAndSlide();

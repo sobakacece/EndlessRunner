@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class CloudSpawner : Spawner
 {
@@ -8,10 +9,14 @@ public partial class CloudSpawner : Spawner
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        MyHeight = this.rnd.Next(minHeigth, maxHeight);
-        MyPath = "res://Spawners/cloud_spawner.tscn";
         base._Ready();
 
+        foreach (Decoration child in this.GetChildren().OfType<Decoration>())
+        {
+            MyHeight = rnd.Next((int)child.MyHeight - child.RangeOfRandom / 2, (int)child.MyHeight + child.RangeOfRandom / 2);
+        }
+        // MyHeight = this.rnd.Next(minHeigth, maxHeight);
+        MyPath = "res://Spawners/cloud_spawner.tscn";
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

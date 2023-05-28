@@ -17,7 +17,9 @@ public partial class Spawner : Node2D
         for (int i = 0; i < MyScenes.Count; i++)
         {
             if (i != random)
+            {
                 this.RemoveChild(MyScenes[i]);
+            }
         }
     }
 

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO  horizontal rockets, fix bug with clouds moving backwards, rethink spawner system, pause screen, UI animations?, slow after a hit, decrease possible angle of attack, best score, level change, change death animation
+//TODO  fix bug with clouds moving backwards, pause screen, UI animations?, decrease possible angle of attack, best score, level change, change death animation, aim assist?, double jump?, grass spawner?
 public partial class TestLevel : Node2D
 {
     private Player player;

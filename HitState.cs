@@ -25,7 +25,7 @@ public partial class HitState : State
         damageable.OnHit += OnDamageableHit;
 
         deadState = MyStateMachine.stateList["Dead"];
-        // returnState = MyStateMachine.stateList["Idle"];  
+        returnState = MyStateMachine.stateList["Ground"];
 
         timer = GetNode<Timer>("Timer");
         timer.Timeout += OnTimeout;
@@ -39,13 +39,14 @@ public partial class HitState : State
     public override void OnEnter()
     {
         // MyCharacter.Velocity = knockbackSpeed;
-
+        MyCharacter.SetCollisionLayerValue(2, false); //turning off Player collision layer;
         playback.Travel("hit");
         timer.Start();
     }
 
     public override void OnExit()
     {
+        MyCharacter.SetCollisionLayerValue(2, true); //turning onn Player collision layer;
         timer.Stop();
     }
     private void OnDamageableHit(Node node, int damage, Vector2 knockbackDirection)
@@ -55,7 +56,7 @@ public partial class HitState : State
             MyCharacter.Velocity = knockbackSpeed * knockbackDirection;
             EmitSignal(SignalName.InterruptState, this);
             // GD.Print(MyCharacter.Velocity.ToString());
-            GD.Print("Health: " + damageable.MyHealth);
+            // GD.Print("Health: " + damageable.MyHealth);
         }
         else
         {
