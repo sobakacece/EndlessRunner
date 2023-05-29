@@ -35,7 +35,6 @@ public partial class CharacterStateMachine : Node
             child.MyCharacter = character;
             child.MyStateMachine = this;
             child.MyAnimationTree = animationTree;
-
             stateList.Add(child.ToString(), child);
             child.InterruptState += OnInterruption;
         }

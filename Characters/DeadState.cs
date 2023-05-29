@@ -9,6 +9,7 @@ public partial class DeadState : State
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+
         gameOverScreen = (PackedScene)ResourceLoader.Load("res://UI/GameOverScreen.tscn");
 
         MyAnimationTree.Connect("animation_finished", new Callable(this, "AnimationFinished"));
@@ -30,6 +31,7 @@ public partial class DeadState : State
     }
     public override void OnEnter()
     {
+        MyAudio.Play();
         MyCharacter.Velocity = Vector2.Zero;
     }
 }

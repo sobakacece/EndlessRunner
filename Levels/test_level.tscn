@@ -2621,3 +2621,5 @@ position = Vector2(206.333, -84.3333)
 
 [node name="cloud_spawner5" parent="Decor/Clouds" instance=ExtResource("6_0wjf7")]
 position = Vector2(42, -86)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]

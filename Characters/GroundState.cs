@@ -53,6 +53,7 @@ public partial class GroundState : State
         MyCharacter.Velocity = new Vector2(0, jumpVelocity);
         jumpVelocity = MyCharacter.MyJumpVelocity; //returning jumpVelocity to default
         playback.Travel("jump");
+        MyAudio.Play();
         nextState = airState;
     }
 }

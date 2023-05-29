@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d4fw7ojk5cuiv"]
+[gd_scene load_steps=45 format=3 uid="uid://d4fw7ojk5cuiv"]
 
 [ext_resource type="Script" path="res://Characters/Player.cs" id="1_8xylo"]
 [ext_resource type="Texture2D" uid="uid://ki1naw0pvt0d" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Player_walk.png" id="1_elit3"]
@@ -12,8 +12,11 @@
 [ext_resource type="Script" path="res://HitState.cs" id="7_fitdc"]
 [ext_resource type="Script" path="res://Characters/StateDebug.cs" id="8_8nrdf"]
 [ext_resource type="Script" path="res://Characters/DeadState.cs" id="9_0vf5k"]
+[ext_resource type="AudioStream" uid="uid://c5jej4ofh0dek" path="res://Art/Audio/Jump.wav" id="9_m6s5t"]
 [ext_resource type="Script" path="res://Damageable.cs" id="9_rsrrl"]
 [ext_resource type="Script" path="res://Characters/AttackState.cs" id="11_newjm"]
+[ext_resource type="AudioStream" uid="uid://bw22khtmxl6xp" path="res://Art/Audio/Damage.wav" id="12_858wj"]
+[ext_resource type="AudioStream" uid="uid://dk3cljg106it3" path="res://Art/Audio/Shot.wav" id="15_8ufv3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i368i"]
 size = Vector2(11, 16)
@@ -367,10 +370,17 @@ jumpThreshold = -800.0
 airState = NodePath("../Air")
 moveable = true
 
+[node name="AudioJump" type="AudioStreamPlayer" parent="CharacterStateMachine/Ground"]
+stream = ExtResource("9_m6s5t")
+volume_db = -8.0
+
 [node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("groundState")]
 script = ExtResource("6_u1yhw")
 groundState = NodePath("../Ground")
 moveable = true
+
+[node name="AudioJump" type="AudioStreamPlayer" parent="CharacterStateMachine/Air"]
+stream = ExtResource("9_m6s5t")
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "deadState", "returnState")]
 script = ExtResource("7_fitdc")
@@ -379,15 +389,24 @@ damageable = NodePath("../../Damageable")
 deadState = NodePath("../Dead")
 returnState = NodePath("../Ground")
 
+[node name="AudioHit" type="AudioStreamPlayer" parent="CharacterStateMachine/Hit"]
+stream = ExtResource("12_858wj")
+
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
 wait_time = 0.6
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_0vf5k")
 
+[node name="AudioHit" type="AudioStreamPlayer" parent="CharacterStateMachine/Dead"]
+stream = ExtResource("12_858wj")
+
 [node name="Attack" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("11_newjm")
 moveable = true
+
+[node name="AudioShot" type="AudioStreamPlayer" parent="CharacterStateMachine/Attack"]
+stream = ExtResource("15_8ufv3")
 
 [node name="BulletSpawner" type="Marker2D" parent="CharacterStateMachine/Attack"]
 position = Vector2(9, 0)

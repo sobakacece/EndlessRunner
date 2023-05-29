@@ -19,7 +19,6 @@ public partial class CloudSpawner : Spawner
         MyPath = "res://Spawners/cloud_spawner.tscn";
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
         if (player.Velocity.X < 0)

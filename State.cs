@@ -14,10 +14,10 @@ public partial class State : Node
     public Vector2 velocity;
     public State nextState;
     public AnimationNodeStateMachinePlayback playback; //for traveling between states in anim tree
+    protected AudioStreamPlayer MyAudio {get => GetChild<AudioStreamPlayer>(0);}
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-
     }
     public virtual void StateProcess(double delta)
     {

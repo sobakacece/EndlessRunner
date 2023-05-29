@@ -20,6 +20,7 @@ public partial class AttackState : State
     }
     public override void OnEnter()
     {
+        MyAudio.Play();
         playback.Travel("attack");
         Attack();
     }

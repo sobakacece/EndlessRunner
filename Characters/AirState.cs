@@ -9,6 +9,7 @@ public partial class AirState : State
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+
         groundState = MyStateMachine.GetNode<State>("Ground");
         attackState = MyStateMachine.GetNode<State>("Attack");
     }
@@ -47,5 +48,7 @@ public partial class AirState : State
 
         else
             MyCharacter.Velocity += new Vector2(0, -doubleJumpVelocity);
+
+        MyAudio.Play();
     }
 }

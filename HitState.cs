@@ -38,6 +38,7 @@ public partial class HitState : State
 
     public override void OnEnter()
     {
+        MyAudio.Play();
         // MyCharacter.Velocity = knockbackSpeed;
         MyCharacter.SetCollisionLayerValue(2, false); //turning off Player collision layer;
         playback.Travel("hit");
