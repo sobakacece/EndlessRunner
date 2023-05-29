@@ -7,7 +7,7 @@ public partial class Spawner : Node2D
     [Export] public float MyHeight { get; set; }
     [Export] public float MySpawnRange { get; set; }
 	public float SpawnPoint { get; set; }
-	private Player player;
+	protected Player player;
     public List<Node2D> MyScenes;
     public Random rnd = new Random();
     public string MyPath { get; set; }

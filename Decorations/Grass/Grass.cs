@@ -20,7 +20,7 @@ public partial class Grass : Decoration
 
     public override void Despawn()
     {
-		GD.Print("Grass despawned");
+		// GD.Print("Grass despawned");
         base.Despawn();
     }
 }

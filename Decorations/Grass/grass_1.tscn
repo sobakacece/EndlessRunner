@@ -10,5 +10,6 @@ flip_h = true
 script = ExtResource("2_8i12h")
 
 [node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(12, 0)
 scale = Vector2(8.27, 1)

@@ -11,5 +11,6 @@ MyHeight = -300.0
 RangeOfRandom = 100
 
 [node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(10, 0)
 scale = Vector2(6.43, 1)

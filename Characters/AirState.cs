@@ -16,7 +16,7 @@ public partial class AirState : State
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void StateProcess(double delta)
     {
-        GD.Print($"Double Jump is used: {usedDoubleJump}");
+        // GD.Print($"Double Jump is used: {usedDoubleJump}");
 
         Landing();
     }

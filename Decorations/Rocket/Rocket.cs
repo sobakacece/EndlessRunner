@@ -43,7 +43,7 @@ public partial class Rocket : HurtBox, IDespawnable
 
 
 
-    public override void Body_Collided(Godot.Node2D body)
+    public override void Collided(Godot.Node2D body)
     {
         foreach (Damageable child in body.GetChildren().OfType<Damageable>())
         {

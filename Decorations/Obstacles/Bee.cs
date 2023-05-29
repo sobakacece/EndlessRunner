@@ -45,9 +45,9 @@ public partial class Bee : HurtBox, IDespawnable
     {
         base.ConnectToArea();
     }
-    public override void Body_Collided(Godot.Node2D body)
+    public override void Collided(Godot.Node2D body)
     {
-        base.Body_Collided(body);
+        base.Collided(body);
     }
     public void ConnectToNotifier()
     {

@@ -25,10 +25,15 @@ public partial class Bullet : HurtBox, IDespawnable
     }
     protected override void ConnectToArea()
     {
-        this.Connect("area_entered", new Callable(this, "Body_Collided")); //Bee's are area2D, so we are checking for are2D objects
+        this.Connect("body_entered", new Callable(this, "Body_Collided"));
+        this.Connect("area_entered", new Callable(this, "Collided")); //Bee's are area2D, so we are checking for are2D objects
 
     }
-    public override void Body_Collided(Node2D body)
+    public void Body_Collided(Node2D body)
+    {
+        Despawn();
+    }
+    public override void Collided(Node2D body)
     {
         GD.Print("Direct Hit");
         foreach (Damageable child in body.GetChildren().OfType<Damageable>())

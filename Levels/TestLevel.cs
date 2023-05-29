@@ -2,8 +2,8 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO LEVEL CHANGE, DEATH ANIM, fix bug with clouds moving backwards,  UI animations?, decrease possible angle of attack? || change facing direction?, best score, aim assist?
-// double jump?,"esc" to unpause
+//TODO LEVEL CHANGE, fix bug with clouds moving backwards,  UI animations?, decrease possible angle of attack? || change facing direction?, best score, bonus score for mobs
+//"esc" to unpause, SOUND
 public partial class TestLevel : Node2D
 {
     private Player player;

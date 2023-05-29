@@ -11,7 +11,7 @@ public partial class TreeSpawner : Spawner
         // MyHeight = -60;
         MySpawnRange = this.rnd.Next(minRange, maxRange);
         MyPath = "res://Spawners/tree_spawner.tscn";
-        GD.Print($"{this.Name} has spawnrange {MySpawnRange}");
+        // GD.Print($"{this.Name} has spawnrange {MySpawnRange}");
         base._Ready();
 
     }

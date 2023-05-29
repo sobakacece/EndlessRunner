@@ -37,7 +37,7 @@ public partial class Player : CharacterBody2D
     {
         Vector2 velocity = Velocity;
 
-        if (!IsOnFloor())
+        if (!IsOnFloor() && stateMachine.CurrentState.ToString() != "Dead")
             velocity.Y += gravity * (float)delta;
 
 

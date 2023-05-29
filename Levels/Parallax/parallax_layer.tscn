@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5avoyf6kf3ka"]
+
+[ext_resource type="Script" path="res://Levels/Parallax/Parallax.cs" id="1_awm84"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_awm84")
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(2, 0)
+motion_offset = Vector2(10, 0)

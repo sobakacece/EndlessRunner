@@ -10,7 +10,7 @@ public abstract partial class HurtBox : Area2D
     {
         // ConnectToArea();
     }
-    public virtual void Body_Collided(Node2D body)
+    public virtual void Collided(Node2D body)
     {
         foreach (Damageable child in body.GetChildren().OfType<Damageable>())
         {
@@ -33,7 +33,7 @@ public abstract partial class HurtBox : Area2D
     }
     protected virtual void ConnectToArea()
     {
-        this.Connect("body_entered", new Callable(this, "Body_Collided"));
+        this.Connect("body_entered", new Callable(this, "Collided"));
 
     }
 

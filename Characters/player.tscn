@@ -1,8 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://d4fw7ojk5cuiv"]
+[gd_scene load_steps=42 format=3 uid="uid://d4fw7ojk5cuiv"]
 
 [ext_resource type="Script" path="res://Characters/Player.cs" id="1_8xylo"]
 [ext_resource type="Texture2D" uid="uid://ki1naw0pvt0d" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Player_walk.png" id="1_elit3"]
 [ext_resource type="Texture2D" uid="uid://d1my7611xyi3c" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Player-Jump.png" id="2_1whtq"]
+[ext_resource type="Texture2D" uid="uid://cusw2pecyiwai" path="res://Art/Retro-Lines-16x16/Anim/explosion_sheet.png" id="2_lgtbc"]
 [ext_resource type="Texture2D" uid="uid://da3fyftmirvf2" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Player-Hit.png" id="2_llusw"]
 [ext_resource type="Texture2D" uid="uid://ccpir07m4klq" path="res://Art/Retro-Lines-16x16/With-Background/Player_attack.png" id="2_slokw"]
 [ext_resource type="Script" path="res://CharacterStateMachine.cs" id="4_ga5c5"]
@@ -131,7 +132,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_f4tqt"]
 resource_name = "dead"
-length = 0.2
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,7 +143,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_llusw")]
+"values": [ExtResource("2_lgtbc")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -154,7 +155,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -163,14 +164,14 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0]
+"values": [0, 1, 2, 3, 4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath(".:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -340,8 +341,8 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_i368i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_llusw")
-hframes = 2
+texture = ExtResource("2_lgtbc")
+hframes = 5
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_8xg0m")

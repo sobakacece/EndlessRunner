@@ -22,9 +22,9 @@ public partial class Tree : HurtBox, IDespawnable
     }
 
 
-    public override void Body_Collided(Godot.Node2D body)
+    public override void Collided(Godot.Node2D body)
     {
-        base.Body_Collided(body);
+        base.Collided(body);
     }
     public void Despawn()
     {

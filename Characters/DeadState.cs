@@ -28,4 +28,8 @@ public partial class DeadState : State
     public override void _Process(double delta)
     {
     }
+    public override void OnEnter()
+    {
+        MyCharacter.Velocity = Vector2.Zero;
+    }
 }
