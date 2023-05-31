@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://but0x0c3frmod"]
+
+[ext_resource type="Script" path="res://UI/CreditsScreen.cs" id="1_onlqq"]
+[ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_y5ax2"]
+[ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="3_1rj0n"]
+[ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="6_tsxn0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
+bg_color = Color(0, 0, 0, 0.407843)
+border_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("restartButton", "quitButton")]
+process_mode = 3
+layer = 3
+script = ExtResource("1_onlqq")
+restartButton = NodePath("")
+quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/BackButton")
+
+[node name="Overlay" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ljes")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -27.5
+offset_right = 4.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsLabel" type="Label" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+text = "Credits
+"
+label_settings = ExtResource("2_y5ax2")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="CreditsLabel2" type="Label" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+text = "Created by: Seals&Faces
+Art and animation: VEXED
+Death animation: ansimuz
+Sounds by: JD Wasabi
+Music by: Davidkbd"
+label_settings = ExtResource("3_1rj0n")
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BackButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tsxn0")
+theme_override_font_sizes/font_size = 36
+text = "Back"

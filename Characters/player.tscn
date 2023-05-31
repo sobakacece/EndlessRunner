@@ -334,10 +334,11 @@ line_spacing = 0.0
 font = SubResource("SystemFont_j1rt3")
 font_size = 10
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_8xylo")
+sprite = NodePath("Sprite2D")
 MyJumpVelocity = -400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

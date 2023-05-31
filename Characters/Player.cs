@@ -15,6 +15,7 @@ public partial class Player : CharacterBody2D
     CharacterStateMachine stateMachine;
     Damageable damageableComponent;
     PackedScene gamePausedScreen;
+    [Export] public Sprite2D sprite;
     private float acceleration = 10, accelerationDelta = 1000;
     [Export] public float MyAccelaration { get => acceleration; set => acceleration = value; } //How much accelerates
     [Export] public float MyAccelerationDelta { get => accelerationDelta; set => accelerationDelta = value; } // How often accelerates
@@ -51,6 +52,7 @@ public partial class Player : CharacterBody2D
         Velocity = velocity;
         MoveAndSlide();
         AnimationUpdateParameters();
+        UpdateFacingDirection();
     }
     public void AnimationUpdateParameters()
     {
@@ -65,6 +67,17 @@ public partial class Player : CharacterBody2D
             this.Owner.AddChild(gamePaused);
             GetTree().Paused = true;
             gamePaused.Visible = true;
+        }
+    }
+    public void UpdateFacingDirection()
+    {
+        if (this.GetGlobalMousePosition().X - this.GlobalPosition.X < 0)
+        {
+            sprite.FlipH = true;
+        }
+        else if (this.GetGlobalMousePosition().X - this.GlobalPosition.X > 0)
+        {
+            sprite.FlipH = false;
         }
     }
 }

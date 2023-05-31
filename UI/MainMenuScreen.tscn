@@ -1,17 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://brir2wqa2tj1w"]
+[gd_scene load_steps=7 format=3 uid="uid://brir2wqa2tj1w"]
 
 [ext_resource type="Script" path="res://UI/MainMenuScreen.cs" id="1_lf2cl"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_a1fwf"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="3_jiaq1"]
+[ext_resource type="AudioStream" uid="uid://bicv3m7ket6ro" path="res://Art/Audio/Music/MainMenuMusic.ogg" id="4_36glt"]
+[ext_resource type="Script" path="res://addons/MusicSettings/AudioStreamPlayerMusic.cs" id="5_1vxxo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
 
-[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("restartButton", "quitButton", "optionsButton")]
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("mainMenuAudio", "restartButton", "quitButton", "optionsButton")]
 process_mode = 3
 layer = 3
 script = ExtResource("1_lf2cl")
+mainMenuAudio = NodePath("AudioStreamPlayerMusic")
 restartButton = NodePath("Overlay/VBoxContainer/VBoxContainer/StartButton")
 quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
 optionsButton = NodePath("Overlay/VBoxContainer/VBoxContainer/OptionsButton")
@@ -72,3 +75,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jiaq1")
 theme_override_font_sizes/font_size = 36
 text = "Quit"
+
+[node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_36glt")
+script = ExtResource("5_1vxxo")

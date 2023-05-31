@@ -6,6 +6,8 @@ public partial class GlobalSettings : Node
     int busEffect, busMusic, busMaster;
     public Slider VFXslider, MusicSlider, GlobalSlider;
     public OptionsScreen MyOptionsInstance { get; set; }
+    public CreditsScreen MyCreditsScreen { get; set; }
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -17,6 +19,11 @@ public partial class GlobalSettings : Node
         MyOptionsInstance = (OptionsScreen)optionsScreen.Instantiate();
         this.AddChild(MyOptionsInstance);
         MyOptionsInstance.Visible = false;
+
+        PackedScene creditsScreen = (PackedScene)ResourceLoader.Load("res://UI/CreditsScreen.tscn");
+        MyCreditsScreen = (CreditsScreen)creditsScreen.Instantiate();
+        this.AddChild(MyCreditsScreen);
+        MyCreditsScreen.Visible = false;
 
         // VFXslider.Connect("drag_ended", new Callable(this, "VFX"));
         GlobalSlider.Connect("drag_ended", new Callable(this, "Master"));

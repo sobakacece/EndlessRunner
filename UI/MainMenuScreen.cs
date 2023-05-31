@@ -3,6 +3,7 @@ using System;
 
 public partial class MainMenuScreen : GameScreen
 {
+    [Export] AudioStreamPlayer mainMenuAudio;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -26,6 +27,7 @@ public partial class MainMenuScreen : GameScreen
     }
     public override void LoadGame()
     {
+        mainMenuAudio.Stop();
         this.Visible = false;
         base.LoadGame();
     }

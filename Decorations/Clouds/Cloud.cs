@@ -4,8 +4,8 @@ using System;
 public partial class Cloud : Decoration
 {
 
-    private float height = -200;
-    private int rangeOfRandom = 100;
+    private float height = -300;
+    private int rangeOfRandom = 300;
     [Export] public override float MyHeight { get => height; set => height = value; }
     [Export] public override int RangeOfRandom { get => rangeOfRandom; set => rangeOfRandom = value; }
 

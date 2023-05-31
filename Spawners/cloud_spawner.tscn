@@ -10,7 +10,7 @@
 script = ExtResource("1_5kb0l")
 speed = 100.0
 minHeigth = 25
-maxHeight = 150
+maxHeight = 250
 MyHeight = -200.0
 MySpawnRange = 100.0
 

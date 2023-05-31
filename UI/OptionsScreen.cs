@@ -7,6 +7,8 @@ public partial class OptionsScreen : GameScreen
     Slider MusicSlider { get => GetNode<Slider>("Overlay/VBoxContainer/OptionsContainer/MusicContainer/MusicSlider"); }
     Slider GlobalSlider { get => GetNode<Slider>("Overlay/VBoxContainer/OptionsContainer/GlobalContainer/GlobalSlider"); }
     BaseButton fullScreenButton { get => GetNode<BaseButton>("Overlay/VBoxContainer/OptionsContainer/FullScreenContainer/FullScreenCheckBox"); }
+    Button creditsButton { get => GetNode<Button>("Overlay/VBoxContainer/VBoxContainer/CreditsButton"); }
+	
     GlobalSettings global;
     public GameScreen MyParent { get; set; }
     // Called when the node enters the scene tree for the first time.
@@ -20,7 +22,15 @@ public partial class OptionsScreen : GameScreen
         ConnectToNodes();
 
         fullScreenButton.Connect("toggled", new Callable(this, "ChangeScreenDimension"));
+		creditsButton.Connect("pressed", new Callable(this, "OpenCredits"));
     }
+
+	public void OpenCredits()
+	{
+		this.Visible = false;
+		global.MyCreditsScreen.Visible = true;
+		global.MyCreditsScreen.MyParent = this;
+	}
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)

@@ -105,10 +105,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -80.0
-max_value = 20.0
-step = 10.0
-value = -30.0
+min_value = -35.0
+max_value = 15.0
+step = 5.0
+value = -10.0
 tick_count = 10
 ticks_on_borders = true
 
@@ -132,10 +132,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -80.0
-max_value = 20.0
-step = 10.0
-value = -30.0
+min_value = -35.0
+max_value = 15.0
+step = 5.0
+value = -10.0
 tick_count = 10
 ticks_on_borders = true
 
@@ -159,8 +159,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-step = 10.0
-value = 50.0
+min_value = -35.0
+max_value = 15.0
+step = 5.0
+value = -10.0
 tick_count = 10
 ticks_on_borders = true
 
@@ -172,6 +174,12 @@ theme_override_constants/separation = 40
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="CreditsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_kyaat")
+theme_override_font_sizes/font_size = 36
+text = "Credits"
 
 [node name="BackButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
 layout_mode = 2

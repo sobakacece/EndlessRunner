@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dihmr1j4cpndr"]
+[gd_scene load_steps=11 format=3 uid="uid://dihmr1j4cpndr"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.cs" id="1_48h0g"]
 [ext_resource type="PackedScene" uid="uid://bif4rqyg2rx44" path="res://UI/UIScore.tscn" id="2_kc8fc"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d4fw7ojk5cuiv" path="res://Characters/player.tscn" id="3_ef666"]
 [ext_resource type="PackedScene" uid="uid://t1a2mx11vhj1" path="res://Spawners/grass_spawner.tscn" id="3_gdesc"]
 [ext_resource type="PackedScene" uid="uid://bmnfff1dwn3wu" path="res://Spawners/cloud_spawner.tscn" id="6_0wjf7"]
+[ext_resource type="AudioStream" uid="uid://cfgobqo32c8dj" path="res://Art/Audio/Music/GameMusic.ogg" id="7_pjjar"]
+[ext_resource type="Script" path="res://addons/MusicSettings/AudioStreamPlayerMusic.cs" id="8_56q4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ekpe"]
 texture = ExtResource("2_ol687")
@@ -2578,7 +2580,7 @@ remote_path = NodePath("../../Camera2D")
 [node name="PlayerUI" parent="." instance=ExtResource("2_kc8fc")]
 
 [node name="Decor" type="Node2D" parent="."]
-position = Vector2(154, 129)
+position = Vector2(152.667, 129.333)
 
 [node name="Grass" type="Node2D" parent="Decor"]
 
@@ -2623,4 +2625,9 @@ position = Vector2(206.333, -84.3333)
 [node name="cloud_spawner5" parent="Decor/Clouds" instance=ExtResource("6_0wjf7")]
 position = Vector2(42, -86)
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_pjjar")
+autoplay = true
+bus = &"Music"
+script = ExtResource("8_56q4f")
