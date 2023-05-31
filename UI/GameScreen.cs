@@ -4,13 +4,17 @@ using System;
 public partial class GameScreen : CanvasLayer
 {
     // Called when the node enters the scene tree for the first time.
-    [Export] protected Button restartButton, quitButton;
+    [Export] protected Button restartButton, quitButton, optionsButton;
     protected SignalBus signalBus;
     protected Player player;
-    protected Node root {get => GetNode("/root");}
-
+    protected Node root { get; set; }
+    OptionsScreen options;
+    GlobalSettings globalSettings;
     public override void _Ready()
     {
+        globalSettings = GetNode<GlobalSettings>("/root/GlobalSettings");
+        options = globalSettings.MyOptionsInstance;
+        root = GetTree().Root;
 
         // signalBus.SaveScore += ChangeScore;
         // signalBus.PlayerEnteredScene += ParsePlayer;
@@ -18,6 +22,7 @@ public partial class GameScreen : CanvasLayer
     }
     public virtual void ConnectToNodes()
     {
+        optionsButton.Connect("pressed", new Callable(this, "OpenOptions"));
         restartButton.Connect("pressed", new Callable(this, "Restart"));
         quitButton.Connect("pressed", new Callable(this, "Quit"));
         signalBus = GetNode<SignalBus>("/root/SignalBus");
@@ -34,6 +39,8 @@ public partial class GameScreen : CanvasLayer
     }
     public virtual void Restart()
     {
+        root = GetTree().Root;
+
         GetTree().Paused = false;
         root.RemoveChild(root.GetNode("TestLevel"));
         LoadGame();
@@ -44,5 +51,11 @@ public partial class GameScreen : CanvasLayer
         Node2D restartlevel = (Node2D)packedLevel.Instantiate();
         root.AddChild(restartlevel); //DID ALL OF THIS BECAUSE I NEED TO SAVE MEMORY FROM TEXTURES;
         signalBus.EmitSignal(SignalBus.SignalName.Restart);
+    }
+    public virtual void OpenOptions()
+    {
+        this.Visible = false;
+        options.Visible = true;
+        options.MyParent = this;
     }
 }

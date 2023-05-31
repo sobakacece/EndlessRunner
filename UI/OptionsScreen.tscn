@@ -1,21 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc0kgn2ks801w"]
+[gd_scene load_steps=8 format=3 uid="uid://bc0kgn2ks801w"]
 
-[ext_resource type="Script" path="res://UI/GameOverScreen.cs" id="1_lj25l"]
+[ext_resource type="Script" path="res://UI/OptionsScreen.cs" id="1_1py0l"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_stjoi"]
 [ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="3_re72u"]
+[ext_resource type="Texture2D" uid="uid://d2hewgooqpmda" path="res://UI/checked.png" id="4_cnu5t"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_kyaat"]
+[ext_resource type="Texture2D" uid="uid://b84w2aw8xkxtb" path="res://UI/unchecked.png" id="4_twbd2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
 
-[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("scoreLabel", "restartButton", "quitButton")]
-process_mode = 2
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("restartButton", "quitButton")]
+process_mode = 3
 layer = 3
-script = ExtResource("1_lj25l")
-scoreLabel = NodePath("")
+script = ExtResource("1_1py0l")
 restartButton = NodePath("")
-quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
+quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/BackButton")
 
 [node name="Overlay" type="Panel" parent="."]
 anchors_preset = 15
@@ -50,70 +51,130 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="VFXcontainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
+[node name="OptionsContainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/VFXcontainer"]
+[node name="FullScreenContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/OptionsContainer"]
+layout_direction = 1
 layout_mode = 2
 alignment = 1
 
-[node name="VFXLabel" type="Label" parent="Overlay/VBoxContainer/VFXcontainer/HBoxContainer"]
+[node name="HPlabel" type="Label" parent="Overlay/VBoxContainer/OptionsContainer/FullScreenContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 2
+text = "FullScreen"
+label_settings = ExtResource("3_re72u")
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/OptionsContainer/FullScreenContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="FullScreenCheckBox" type="CheckBox" parent="Overlay/VBoxContainer/OptionsContainer/FullScreenContainer"]
+modulate = Color(1, 1, 1, 0.513726)
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_icons/checked = ExtResource("4_cnu5t")
+theme_override_icons/checked_disabled = ExtResource("4_cnu5t")
+theme_override_icons/unchecked = ExtResource("4_twbd2")
+theme_override_icons/unchecked_disabled = ExtResource("4_twbd2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="GlobalContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/OptionsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GlobalLabel" type="Label" parent="Overlay/VBoxContainer/OptionsContainer/GlobalContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Global"
+label_settings = ExtResource("3_re72u")
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/OptionsContainer/GlobalContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="GlobalSlider" type="HSlider" parent="Overlay/VBoxContainer/OptionsContainer/GlobalContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 20.0
+step = 10.0
+value = -30.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="VFXContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/OptionsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VFXLabel" type="Label" parent="Overlay/VBoxContainer/OptionsContainer/VFXContainer"]
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 2
 text = "VFX"
 label_settings = ExtResource("3_re72u")
 
-[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/VFXcontainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/OptionsContainer/VFXContainer"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="VFXSlider" type="HSlider" parent="Overlay/VBoxContainer/VFXcontainer/HBoxContainer"]
+[node name="VFXSlider" type="HSlider" parent="Overlay/VBoxContainer/OptionsContainer/VFXContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -50.0
-max_value = 50.0
+min_value = -80.0
+max_value = 20.0
 step = 10.0
+value = -30.0
 tick_count = 10
 ticks_on_borders = true
 
-[node name="MusicContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/VFXcontainer"]
+[node name="MusicContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/OptionsContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="MusicLabel" type="Label" parent="Overlay/VBoxContainer/VFXcontainer/MusicContainer"]
+[node name="MusicLabel" type="Label" parent="Overlay/VBoxContainer/OptionsContainer/MusicContainer"]
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Music"
 label_settings = ExtResource("3_re72u")
 
-[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/VFXcontainer/MusicContainer"]
+[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/OptionsContainer/MusicContainer"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="MusicSlider" type="HSlider" parent="Overlay/VBoxContainer/VFXcontainer/MusicContainer"]
+[node name="MusicSlider" type="HSlider" parent="Overlay/VBoxContainer/OptionsContainer/MusicContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -50.0
-max_value = 50.0
 step = 10.0
+value = 50.0
 tick_count = 10
 ticks_on_borders = true
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/VBoxContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="QuitButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kyaat")
 theme_override_font_sizes/font_size = 36
-text = "Quit"
+text = "Back"

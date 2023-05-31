@@ -8,6 +8,7 @@ public partial class GamePauseScreen : GameScreen
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        base._Ready();
         ConnectToNodes();
     }
 
@@ -24,8 +25,8 @@ public partial class GamePauseScreen : GameScreen
     public void Continue()
     {
         GetTree().Paused = false;
-       Visible = false;
-       QueueFree();
+        Visible = false;
+        QueueFree();
     }
     //  public override void _Input(InputEvent @event)
     // {

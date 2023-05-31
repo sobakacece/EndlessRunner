@@ -8,12 +8,13 @@
 bg_color = Color(0, 0, 0, 0.407843)
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
 
-[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("restartButton", "quitButton")]
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("restartButton", "quitButton", "optionsButton")]
 process_mode = 3
 layer = 3
 script = ExtResource("1_lf2cl")
 restartButton = NodePath("Overlay/VBoxContainer/VBoxContainer/StartButton")
 quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
+optionsButton = NodePath("Overlay/VBoxContainer/VBoxContainer/OptionsButton")
 
 [node name="Overlay" type="Panel" parent="."]
 anchors_preset = 15

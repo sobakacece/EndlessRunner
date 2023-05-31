@@ -2,8 +2,8 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO  UI animations?, decrease possible angle of attack? || change facing direction?, best score, main menu, options
-//"esc" to unpause, music, sound to enemy hit
+//TODO  UI animations?, decrease possible angle of attack? || change facing direction?, best score, main menu
+//"esc" to unpause, music
 public partial class TestLevel : Node2D
 {
     private Player player;

@@ -3,7 +3,7 @@ using System;
 
 public partial class Grass : Decoration
 {
-    private float height = -10;
+    private float height = 30;
     private int rangeOfRandom = 0;
     [Export] public override float MyHeight { get => height; set => height = value; }
     [Export] public override int RangeOfRandom { get => rangeOfRandom; set => rangeOfRandom = value; }

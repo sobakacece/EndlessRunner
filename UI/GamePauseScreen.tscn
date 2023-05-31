@@ -8,13 +8,14 @@
 bg_color = Color(0, 0, 0, 0.407843)
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
 
-[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("continueButton", "restartButton", "quitButton")]
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("continueButton", "restartButton", "quitButton", "optionsButton")]
 process_mode = 3
 layer = 3
 script = ExtResource("1_ud68f")
 continueButton = NodePath("Overlay/VBoxContainer/VBoxContainer/ContinueButton")
 restartButton = NodePath("Overlay/VBoxContainer/VBoxContainer/RestartButton")
 quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
+optionsButton = NodePath("Overlay/VBoxContainer/VBoxContainer/OptionsButton")
 
 [node name="Overlay" type="Panel" parent="."]
 anchors_preset = 15

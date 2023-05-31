@@ -18,10 +18,19 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://GlobalScripts/SignalBus.cs"
+GlobalSettings="*res://GlobalScripts/GlobalSettings.cs"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="Simpe_Endless_Runner"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/MusicSettings/plugin.cfg")
 
 [input]
 
