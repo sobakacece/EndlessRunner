@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq0x3ejsn0r56"]
+[gd_scene load_steps=17 format=3 uid="uid://bq0x3ejsn0r56"]
 
 [ext_resource type="Script" path="res://Decorations/Rocket/Rocket.cs" id="1_3issb"]
 [ext_resource type="Texture2D" uid="uid://cga5ckpk0u6pi" path="res://Art/Retro-Lines-16x16/rocket_top.png" id="2_fm7cd"]
 [ext_resource type="Script" path="res://Damageable.cs" id="3_vfit6"]
 [ext_resource type="Texture2D" uid="uid://cp8b21mx4yiwc" path="res://Art/Retro-Lines-16x16/rocket_top_hit.png" id="4_qmumx"]
+[ext_resource type="AudioStream" uid="uid://blobd8kxdnten" path="res://Art/Audio/Enemy_Hit.wav" id="5_fwg5x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8a50"]
 radius = 7.0
@@ -159,3 +160,6 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ckiyf")
 
 [node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fwg5x")

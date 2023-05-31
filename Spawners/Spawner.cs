@@ -11,6 +11,7 @@ public partial class Spawner : Node2D
     public List<Node2D> MyScenes;
     public Random rnd = new Random();
     public string MyPath { get; set; }
+    
     public void PickRandom()
     {
         int random = rnd.Next(0, MyScenes.Count);

@@ -14,8 +14,8 @@ process_mode = 2
 layer = 3
 script = ExtResource("1_gkhc5")
 scoreLabel = NodePath("Overlay/VBoxContainer/ScoreLabel")
-restartButton = NodePath("Overlay/VBoxContainer/RestartButton")
-quitButton = NodePath("Overlay/VBoxContainer/QuitButton")
+restartButton = NodePath("Overlay/VBoxContainer/VBoxContainer/RestartButton")
+quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
 
 [node name="Overlay" type="Panel" parent="."]
 anchors_preset = 15
@@ -56,13 +56,18 @@ autowrap_mode = 1
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="RestartButton" type="Button" parent="Overlay/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RestartButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0i0dp")
 theme_override_font_sizes/font_size = 36
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="Overlay/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0i0dp")
 theme_override_font_sizes/font_size = 36

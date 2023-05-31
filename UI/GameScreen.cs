@@ -7,6 +7,7 @@ public partial class GameScreen : CanvasLayer
     [Export] protected Button restartButton, quitButton;
     protected SignalBus signalBus;
     protected Player player;
+    protected Node root {get => GetNode("/root");}
 
     public override void _Ready()
     {
@@ -34,12 +35,14 @@ public partial class GameScreen : CanvasLayer
     public virtual void Restart()
     {
         GetTree().Paused = false;
-        Node root = GetNode("/root");
         root.RemoveChild(root.GetNode("TestLevel"));
+        LoadGame();
+    }
+    public virtual void LoadGame()
+    {
         PackedScene packedLevel = (PackedScene)ResourceLoader.Load("res://Levels/test_level.tscn");
         Node2D restartlevel = (Node2D)packedLevel.Instantiate();
         root.AddChild(restartlevel); //DID ALL OF THIS BECAUSE I NEED TO SAVE MEMORY FROM TEXTURES;
-
         signalBus.EmitSignal(SignalBus.SignalName.Restart);
     }
 }

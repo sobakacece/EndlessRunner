@@ -12,6 +12,7 @@ public partial class Rocket : HurtBox, IDespawnable
     private AnimationTree animationTree;
     private SignalBus signalBus;
     private Damageable damageableComponent;
+    private AudioStreamPlayer audio {get => this.GetChildren().OfType<AudioStreamPlayer>().First();}
     private bool dying = false;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -38,6 +39,7 @@ public partial class Rocket : HurtBox, IDespawnable
 
     public void GetShot(Node2D body, int damage, Vector2 knockback)
     {
+        audio.Play();
         Despawn();
     }
 

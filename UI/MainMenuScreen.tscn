@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://brir2wqa2tj1w"]
+
+[ext_resource type="Script" path="res://UI/MainMenuScreen.cs" id="1_lf2cl"]
+[ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_a1fwf"]
+[ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="3_jiaq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
+bg_color = Color(0, 0, 0, 0.407843)
+border_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("restartButton", "quitButton")]
+process_mode = 3
+layer = 3
+script = ExtResource("1_lf2cl")
+restartButton = NodePath("Overlay/VBoxContainer/VBoxContainer/StartButton")
+quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
+
+[node name="Overlay" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ljes")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -27.5
+offset_right = 4.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameNameLabel" type="Label" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+text = "Endless Runner"
+label_settings = ExtResource("2_a1fwf")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jiaq1")
+theme_override_font_sizes/font_size = 36
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jiaq1")
+theme_override_font_sizes/font_size = 36
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jiaq1")
+theme_override_font_sizes/font_size = 36
+text = "Quit"

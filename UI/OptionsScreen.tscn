@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc0kgn2ks801w"]
+
+[ext_resource type="Script" path="res://UI/GameOverScreen.cs" id="1_lj25l"]
+[ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_stjoi"]
+[ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="3_re72u"]
+[ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_kyaat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
+bg_color = Color(0, 0, 0, 0.407843)
+border_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("scoreLabel", "restartButton", "quitButton")]
+process_mode = 2
+layer = 3
+script = ExtResource("1_lj25l")
+scoreLabel = NodePath("")
+restartButton = NodePath("")
+quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
+
+[node name="Overlay" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ljes")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -27.5
+offset_right = 4.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = ExtResource("2_stjoi")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VFXcontainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/VFXcontainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VFXLabel" type="Label" parent="Overlay/VBoxContainer/VFXcontainer/HBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 2
+text = "VFX"
+label_settings = ExtResource("3_re72u")
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/VFXcontainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="VFXSlider" type="HSlider" parent="Overlay/VBoxContainer/VFXcontainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -50.0
+max_value = 50.0
+step = 10.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="MusicContainer" type="HBoxContainer" parent="Overlay/VBoxContainer/VFXcontainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MusicLabel" type="Label" parent="Overlay/VBoxContainer/VFXcontainer/MusicContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Music"
+label_settings = ExtResource("3_re72u")
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/VBoxContainer/VFXcontainer/MusicContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="Overlay/VBoxContainer/VFXcontainer/MusicContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -50.0
+max_value = 50.0
+step = 10.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="QuitButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_kyaat")
+theme_override_font_sizes/font_size = 36
+text = "Quit"
