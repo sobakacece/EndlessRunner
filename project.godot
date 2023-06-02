@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://GlobalScripts/SignalBus.cs"
 GlobalSettings="*res://GlobalScripts/GlobalSettings.cs"
+GameMusic="*res://GlobalScripts/GameMusic.tscn"
 
 [display]
 

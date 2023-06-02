@@ -3,8 +3,12 @@ using System;
 
 public partial class TreeSpawner : Spawner
 {
-    [Export] int minRange = 400;
-    [Export] int maxRange = 1000;
+    int minRange = 200;
+    int maxRange = 350;
+
+    [Export] int MyMinRange { get => minRange; set => minRange = value; }
+    [Export] int MyMaxRange { get => maxRange; set => maxRange = value; }
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {

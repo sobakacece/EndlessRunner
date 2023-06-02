@@ -50,12 +50,19 @@ public partial class RecordsScreen : GameScreen
     {
         string newName = playerEdit.Text;
         int HI = (int)MyGlobalSettings.FinalScore;
-        records.Remove(records.Last().Key);
-        records.Add(newName, HI);
+        if (records.ContainsKey(newName))
+        {
+            records[newName] = HI;
+        }
+        else
+        {
+            records.Remove(records.Last().Key);
+            records.Add(newName, HI);
+        }
         records = records.OrderByDescending(i => i.Value).ToDictionary(x => x.Key, y => y.Value);
 
         UpdateText(records);
-		UpdateConfig(records);
+        UpdateConfig(records);
         inputPanel.Visible = false;
     }
     public bool CheckHighScore()
@@ -70,24 +77,7 @@ public partial class RecordsScreen : GameScreen
         }
         return false;
     }
-    // public void UpdateRecords(Dictionary<string, int> updateRecords)
-    // {
-    //     string playerText = string.Empty;
-    //     string scoreText = string.Empty;
 
-    //     for (int i = 0; i < updateRecords.Count; i++)
-    //     {
-    //         MyGlobalSettings.config.SetValue($"Player{i + 1}", "player_name", updateRecords.ElementAt(i).Key);
-    //         MyGlobalSettings.config.SetValue($"Player{i + 1}", "best_score", updateRecords.ElementAt(i).Value);
-
-    //         playerText += string.Join("", updateRecords.ElementAt(i).Key, "\n");
-    //         scoreText += string.Join("", updateRecords.ElementAt(i).Value.ToString("000000"), "\n");
-    //     }
-    //     MyGlobalSettings.config.Save("user://scores.cfg");
-
-    //     scoreLabel.Text = scoreText;
-    //     playerLabel.Text = playerText;
-    // }
     public void UpdateText(Dictionary<string, int> updateRecords)
     {
         string playerText = string.Empty;
@@ -103,15 +93,15 @@ public partial class RecordsScreen : GameScreen
         playerLabel.Text = playerText;
     }
 
-	public void UpdateConfig(Dictionary<string, int> updateRecords)
-	{
-		for (int i = 0; i < updateRecords.Count; i++)
+    public void UpdateConfig(Dictionary<string, int> updateRecords)
+    {
+        for (int i = 0; i < updateRecords.Count; i++)
         {
             MyGlobalSettings.config.SetValue($"Player{i + 1}", "player_name", updateRecords.ElementAt(i).Key);
             MyGlobalSettings.config.SetValue($"Player{i + 1}", "best_score", updateRecords.ElementAt(i).Value);
 
         }
         MyGlobalSettings.config.Save("user://scores.cfg");
-	}
+    }
 
 }

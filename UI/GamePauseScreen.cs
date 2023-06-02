@@ -10,11 +10,14 @@ public partial class GamePauseScreen : GameScreen
     {
         base._Ready();
         ConnectToNodes();
+        continueButton.Disabled = true;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        if (this.Visible)
+        continueButton.Disabled = false;
     }
 
     public override void ConnectToNodes()

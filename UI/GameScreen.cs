@@ -47,6 +47,7 @@ public partial class GameScreen : CanvasLayer
         GetTree().Paused = false;
         root.RemoveChild(root.GetNode("TestLevel"));
         LoadGame();
+        // MyGlobalSettings.GlobalMusic.Play();
     }
     public virtual void LoadGame()
     {

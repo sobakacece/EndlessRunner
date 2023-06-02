@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bcfs26afvd75s"]
+
+[ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="1_nwqx0"]
+
+[resource]
+font = ExtResource("1_nwqx0")
+font_size = 36
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(1, 1, 1, 0.372549)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://brir2wqa2tj1w"]
+[gd_scene load_steps=9 format=3 uid="uid://brir2wqa2tj1w"]
 
 [ext_resource type="Script" path="res://UI/MainMenuScreen.cs" id="1_lf2cl"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_a1fwf"]
+[ext_resource type="Theme" uid="uid://b3xv23b4fh5n3" path="res://Default_Theme.tres" id="2_n1cq6"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="3_jiaq1"]
 [ext_resource type="AudioStream" uid="uid://bicv3m7ket6ro" path="res://Art/Audio/Music/MainMenuMusic.ogg" id="4_36glt"]
 [ext_resource type="Script" path="res://addons/MusicSettings/AudioStreamPlayerMusic.cs" id="5_1vxxo"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="5_i1bew"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -45,6 +47,8 @@ grow_vertical = 2
 
 [node name="GameNameLabel" type="Label" parent="Overlay/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_n1cq6")
+theme_type_variation = &"HeaderLarge"
 text = "Endless Runner"
 label_settings = ExtResource("2_a1fwf")
 horizontal_alignment = 1
@@ -60,28 +64,76 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="StartButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jiaq1")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start"
+label_settings = ExtResource("5_i1bew")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OptionsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jiaq1")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/OptionsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Options"
+label_settings = ExtResource("5_i1bew")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RecordsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jiaq1")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/RecordsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Records"
+label_settings = ExtResource("5_i1bew")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuitButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jiaq1")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Quit"
+label_settings = ExtResource("5_i1bew")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_36glt")

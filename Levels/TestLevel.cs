@@ -2,8 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO  another cursor, button style
-//"esc" to unpause, music (end it)
+//TODO  button style
 public partial class TestLevel : Node2D
 {
     private Player player;

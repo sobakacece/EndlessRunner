@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc0kgn2ks801w"]
+[gd_scene load_steps=9 format=3 uid="uid://bc0kgn2ks801w"]
 
 [ext_resource type="Script" path="res://UI/OptionsScreen.cs" id="1_1py0l"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_stjoi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2hewgooqpmda" path="res://UI/checked.png" id="4_cnu5t"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_kyaat"]
 [ext_resource type="Texture2D" uid="uid://b84w2aw8xkxtb" path="res://UI/unchecked.png" id="4_twbd2"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="7_rfuoh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -176,13 +177,37 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CreditsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kyaat")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/CreditsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Credits"
+label_settings = ExtResource("7_rfuoh")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BackButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kyaat")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Back"
+label_settings = ExtResource("7_rfuoh")
+horizontal_alignment = 1
+vertical_alignment = 1

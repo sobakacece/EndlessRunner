@@ -12,6 +12,7 @@ public partial class GlobalSettings : Node
     public CreditsScreen MyCredits { get => creditsInstance; }
     public RecordsScreen MyRecords { get => recordsIntstance; }
     public ConfigFile config;
+    public AudioStreamPlayer GlobalMusic {get => GetNode<AudioStreamPlayer>("/root/GameMusic");}
     public float FinalScore { get; set; }
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()

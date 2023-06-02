@@ -1,14 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4tbijfdf2av2"]
+[gd_scene load_steps=10 format=3 uid="uid://c4tbijfdf2av2"]
 
 [ext_resource type="Script" path="res://UI/RecordsScreen.cs" id="1_m05ll"]
 [ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="3_r1guv"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="3_uc7yu"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_5xdny"]
 [ext_resource type="Script" path="res://UI/AgreementBox.cs" id="5_6v3bx"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="5_yneeq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fdui"]
+font = ExtResource("4_5xdny")
+font_size = 18
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(1, 1, 1, 0.372549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_daabx"]
+font = ExtResource("4_5xdny")
+font_size = 18
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(1, 1, 1, 0.372549)
 
 [node name="RecordsScreen" type="CanvasLayer" node_paths=PackedStringArray("scoreLabel", "playerLabel", "inputPanel", "agreementPanel", "playerButton", "clearButton", "playerEdit", "restartButton", "quitButton", "optionsButton")]
 process_mode = 3
@@ -29,6 +46,10 @@ optionsButton = NodePath("")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -1.0
+offset_right = -40.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -100,18 +121,40 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="ResetButton" type="Button" parent="MainContent/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_5xdny")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="MainContent/VBoxContainer/ResetButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Reset Records"
-text_direction = 1
+label_settings = ExtResource("5_yneeq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuitButton" type="Button" parent="MainContent/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_5xdny")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="MainContent/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Back"
-text_direction = 1
+label_settings = ExtResource("5_yneeq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextInputBox" type="Panel" parent="."]
 visible = false
@@ -177,14 +220,25 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="PlayerButton" type="Button" parent="TextInputBox/ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("4_5xdny")
 theme_override_font_sizes/font_size = 18
 disabled = true
+
+[node name="Label" type="Label" parent="TextInputBox/ColorRect/MarginContainer/VBoxContainer/PlayerButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Done"
+label_settings = SubResource("LabelSettings_2fdui")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AgreementBox" type="Panel" parent="." node_paths=PackedStringArray("btnYes", "btnNo")]
 visible = false
@@ -245,13 +299,25 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="NoButton" type="Button" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+clip_contents = true
+custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("4_5xdny")
 theme_override_font_sizes/font_size = 18
+
+[node name="Label" type="Label" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/NoButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "No"
+label_settings = SubResource("LabelSettings_daabx")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
@@ -259,10 +325,21 @@ custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
 [node name="YesButton" type="Button" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("4_5xdny")
 theme_override_font_sizes/font_size = 18
+
+[node name="Label2" type="Label" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/YesButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Yes"
+label_settings = SubResource("LabelSettings_daabx")
+horizontal_alignment = 1
+vertical_alignment = 1

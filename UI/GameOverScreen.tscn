@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://gktsbfdse5wf"]
+[gd_scene load_steps=7 format=3 uid="uid://gktsbfdse5wf"]
 
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="1_0vfrn"]
 [ext_resource type="Script" path="res://UI/GameOverScreen.cs" id="1_gkhc5"]
 [ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="2_srqwo"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="3_0i0dp"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="5_wusn4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -64,25 +65,73 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="RestartButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0i0dp")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/RestartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Restart"
+label_settings = ExtResource("5_wusn4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OptionsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0i0dp")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/OptionsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Options"
+label_settings = ExtResource("5_wusn4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RecordsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0i0dp")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/RecordsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Records"
+label_settings = ExtResource("5_wusn4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuitButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0i0dp")
 theme_override_font_sizes/font_size = 36
+
+[node name="Label" type="Label" parent="Overlay/VBoxContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Quit"
+label_settings = ExtResource("5_wusn4")
+horizontal_alignment = 1
+vertical_alignment = 1

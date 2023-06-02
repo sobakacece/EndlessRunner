@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctf3v73dxrg31"]
+
+[ext_resource type="AudioStream" uid="uid://cfgobqo32c8dj" path="res://Art/Audio/Music/GameMusic.ogg" id="1_36etu"]
+[ext_resource type="Script" path="res://addons/MusicSettings/AudioStreamPlayerMusic.cs" id="2_ccaia"]
+
+[node name="GameMusic" type="AudioStreamPlayer"]
+process_mode = 1
+stream = ExtResource("1_36etu")
+bus = &"Music"
+script = ExtResource("2_ccaia")
