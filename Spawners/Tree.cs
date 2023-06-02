@@ -28,7 +28,7 @@ public partial class Tree : HurtBox, IDespawnable
     }
     public void Despawn()
     {
-        // GD.Print("Tree despawmed");
+    // GD.Print("Tree despawmed");
         GetParent().QueueFree();
 
     }

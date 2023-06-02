@@ -10,7 +10,7 @@ public partial class AudioStreamPlayerCustom : AudioStreamPlayer
     public override void _Ready()
     {
         busIndex = AudioServer.GetBusIndex(this.Bus);
-        GD.Print("Ready");
+        // GD.Print("Ready");
         this.VolumeDb = (float)slider.Value;
         this.StreamPaused = false;
         if ((int)slider.Value == (int)slider.MinValue)

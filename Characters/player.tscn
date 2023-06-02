@@ -365,11 +365,11 @@ animationTree = NodePath("../AnimationTree")
 MyBody = NodePath("..")
 CurrentState = NodePath("Ground")
 
-[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("airState")]
+[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("airState", "attackState")]
 script = ExtResource("5_1nqp1")
 jumpHolding = 10.0
-jumpThreshold = -800.0
 airState = NodePath("../Air")
+attackState = NodePath("../Attack")
 moveable = true
 
 [node name="Jump" type="AudioStreamPlayer" parent="CharacterStateMachine/Ground"]
@@ -379,6 +379,7 @@ script = ExtResource("10_l1jyu")
 
 [node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("groundState")]
 script = ExtResource("6_u1yhw")
+doubleJumpVelocity = 200.0
 groundState = NodePath("../Ground")
 moveable = true
 

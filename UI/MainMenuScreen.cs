@@ -19,10 +19,9 @@ public partial class MainMenuScreen : GameScreen
     }
     public override void ConnectToNodes()
     {
-        optionsButton.Connect("pressed", new Callable(this, "OpenOptions"));
+        base.ConnectToNodes();
+        restartButton.Disconnect("pressed", new Callable(this, "Restart"));
         restartButton.Connect("pressed", new Callable(this, "LoadGame"));
-        quitButton.Connect("pressed", new Callable(this, "Quit"));
-        signalBus = GetNode<SignalBus>("/root/SignalBus");
 
     }
     public override void LoadGame()

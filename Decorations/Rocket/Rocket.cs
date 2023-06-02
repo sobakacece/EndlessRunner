@@ -56,12 +56,11 @@ public partial class Rocket : HurtBox, IDespawnable
     }
     public void Despawn()
     {
-        // GD.Print("Tree despawmed");
+        
+        // GD.Print("Rocket despawmed");
         dying = true;
         playback.Travel("dead");
         SetCollisionMaskValue(2, false);
-
-
     }
     public void ConnectToNotifier()
     {

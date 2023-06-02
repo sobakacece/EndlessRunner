@@ -11,6 +11,5 @@ MyHeight = -300.0
 RangeOfRandom = 100
 
 [node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(14, 0)
-scale = Vector2(8.15, 1)
+position = Vector2(27.75, 0)
+scale = Vector2(6.775, 1)

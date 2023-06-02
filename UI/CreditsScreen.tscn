@@ -53,10 +53,10 @@ theme_override_constants/separation = 40
 [node name="CreditsLabel2" type="Label" parent="Overlay/VBoxContainer"]
 layout_mode = 2
 text = "Created by: Seals&Faces
-Art and animation: VEXED
+Art and animations: VEXED
 Death animation: ansimuz
-Sounds by: JD Wasabi
-Music by: Davidkbd"
+VFX: JD Wasabi
+Music: Davidkbd"
 label_settings = ExtResource("3_1rj0n")
 horizontal_alignment = 1
 

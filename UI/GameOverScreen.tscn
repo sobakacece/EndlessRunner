@@ -9,7 +9,7 @@
 bg_color = Color(0, 0, 0, 0.407843)
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
 
-[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("scoreLabel", "restartButton", "quitButton", "optionsButton")]
+[node name="Control" type="CanvasLayer" node_paths=PackedStringArray("scoreLabel", "restartButton", "quitButton", "optionsButton", "recordsButton")]
 process_mode = 2
 layer = 3
 script = ExtResource("1_gkhc5")
@@ -17,6 +17,7 @@ scoreLabel = NodePath("Overlay/VBoxContainer/ScoreLabel")
 restartButton = NodePath("Overlay/VBoxContainer/VBoxContainer/RestartButton")
 quitButton = NodePath("Overlay/VBoxContainer/VBoxContainer/QuitButton")
 optionsButton = NodePath("Overlay/VBoxContainer/VBoxContainer/OptionsButton")
+recordsButton = NodePath("Overlay/VBoxContainer/VBoxContainer/RecordsButton")
 
 [node name="Overlay" type="Panel" parent="."]
 anchors_preset = 15
@@ -73,6 +74,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0i0dp")
 theme_override_font_sizes/font_size = 36
 text = "Options"
+
+[node name="RecordsButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0i0dp")
+theme_override_font_sizes/font_size = 36
+text = "Records"
 
 [node name="QuitButton" type="Button" parent="Overlay/VBoxContainer/VBoxContainer"]
 layout_mode = 2

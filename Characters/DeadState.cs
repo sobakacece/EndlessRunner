@@ -11,7 +11,6 @@ public partial class DeadState : State
     {
 
         gameOverScreen = (PackedScene)ResourceLoader.Load("res://UI/GameOverScreen.tscn");
-
         MyAnimationTree.Connect("animation_finished", new Callable(this, "AnimationFinished"));
     }
     public void AnimationFinished(string anim_name)
@@ -21,7 +20,10 @@ public partial class DeadState : State
             GetTree().Paused = true;
             GameOverScreen gameOverScreenNode = (GameOverScreen)gameOverScreen.Instantiate();
             MyCharacter.Owner.AddChild(gameOverScreenNode);
-            gameOverScreenNode.Visible = true;
+            if (gameOverScreenNode.ScoreBeaten)
+            {
+                gameOverScreenNode.ShowRecordScreen();
+            }
         }
     }
 

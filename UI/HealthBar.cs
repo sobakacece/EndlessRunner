@@ -21,6 +21,7 @@ public partial class HealthBar : BoxContainer
     #endregion
     Player player;
     SignalBus signalBus;
+    GlobalSettings global;
 
     public override void _Ready()
     {
@@ -35,8 +36,10 @@ public partial class HealthBar : BoxContainer
         // GD.Print("Order: UI");
         packedHP = (PackedScene)ResourceLoader.Load("res://UI/hp.tscn");
         signalBus = GetNode<SignalBus>("/root/SignalBus");
-
         signalBus.Restart += OnRestart;
+
+
+        global = GetNode<GlobalSettings>("/root/GlobalSettings");
         signalBus.HealthChanged += ChangeTexture;
         ParsingPlayer();
 
@@ -79,7 +82,7 @@ public partial class HealthBar : BoxContainer
         // player.MyScore = (int)currentScore;
         scoreLabel.Text = currentScore.ToString("0000000");
         Accelerate();
-        signalBus.FinalScore = currentScore;
+        global.FinalScore = currentScore;
     }
     public void ChangeTexture(Node node, int damage)
     {

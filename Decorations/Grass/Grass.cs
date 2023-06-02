@@ -10,7 +10,7 @@ public partial class Grass : Decoration
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-		ConnectToNotifier();
+        ConnectToNotifier();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,7 +20,7 @@ public partial class Grass : Decoration
 
     public override void Despawn()
     {
-		// GD.Print("Grass despawned");
+        // GD.Print("Grass despawned");
         base.Despawn();
     }
 }

@@ -5,32 +5,27 @@ public partial class OptionsScreen : GameScreen
 {
     Slider VFXSlider { get => GetNode<Slider>("Overlay/VBoxContainer/OptionsContainer/VFXContainer/VFXSlider"); }
     Slider MusicSlider { get => GetNode<Slider>("Overlay/VBoxContainer/OptionsContainer/MusicContainer/MusicSlider"); }
-    Slider GlobalSlider { get => GetNode<Slider>("Overlay/VBoxContainer/OptionsContainer/GlobalContainer/GlobalSlider"); }
+    public Slider GlobalSlider { get => GetNode<Slider>("Overlay/VBoxContainer/OptionsContainer/GlobalContainer/GlobalSlider"); }
     BaseButton fullScreenButton { get => GetNode<BaseButton>("Overlay/VBoxContainer/OptionsContainer/FullScreenContainer/FullScreenCheckBox"); }
     Button creditsButton { get => GetNode<Button>("Overlay/VBoxContainer/VBoxContainer/CreditsButton"); }
-	
-    GlobalSettings global;
-    public GameScreen MyParent { get; set; }
+
+    public GameScreen ReturnScreen { get; set; }
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        global = GetNode<GlobalSettings>("/root/GlobalSettings");
 
-        global.VFXslider = this.VFXSlider;
-        global.MusicSlider = this.MusicSlider;
-        global.GlobalSlider = this.GlobalSlider;
+        MyGlobalSettings.VFXslider = this.VFXSlider;
+        MyGlobalSettings.MusicSlider = this.MusicSlider;
+        MyGlobalSettings.GlobalSlider = this.GlobalSlider;
         ConnectToNodes();
 
-        fullScreenButton.Connect("toggled", new Callable(this, "ChangeScreenDimension"));
-		creditsButton.Connect("pressed", new Callable(this, "OpenCredits"));
+
     }
 
-	public void OpenCredits()
-	{
-		this.Visible = false;
-		global.MyCreditsScreen.Visible = true;
-		global.MyCreditsScreen.MyParent = this;
-	}
+    public void OpenCredits()
+    {
+       ChangeScreen(MyGlobalSettings.MyCredits);
+    }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
@@ -39,11 +34,12 @@ public partial class OptionsScreen : GameScreen
     public override void ConnectToNodes()
     {
         quitButton.Connect("pressed", new Callable(this, "Quit"));
+        fullScreenButton.Connect("toggled", new Callable(this, "ChangeScreenDimension"));
+        creditsButton.Connect("pressed", new Callable(this, "OpenCredits"));
     }
     public override void Quit()
     {
-        MyParent.Visible = true;
-        this.Visible = false;
+        ChangeScreen(ReturnScreen);
     }
     public void ChangeScreenDimension(bool button_pressed)
     {

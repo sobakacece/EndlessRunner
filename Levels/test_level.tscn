@@ -2562,7 +2562,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_48h0g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(200, 50)
+position = Vector2(181, 69)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(154, 128)
@@ -2574,7 +2574,7 @@ layer_0/tile_data = PackedInt32Array(0, 65537, 16, 1, 131073, 16, 2, 196609, 16,
 position = Vector2(200, 90)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-position = Vector2(0, -40)
+position = Vector2(-19, -21)
 remote_path = NodePath("../../Camera2D")
 
 [node name="PlayerUI" parent="." instance=ExtResource("2_kc8fc")]

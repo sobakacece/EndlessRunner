@@ -142,6 +142,7 @@ MyDamage = 1
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_oi8ky")
 hframes = 4
+frame = 3
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o8a50")

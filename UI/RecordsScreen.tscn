@@ -1,0 +1,268 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4tbijfdf2av2"]
+
+[ext_resource type="Script" path="res://UI/RecordsScreen.cs" id="1_m05ll"]
+[ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="3_r1guv"]
+[ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="3_uc7yu"]
+[ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_5xdny"]
+[ext_resource type="Script" path="res://UI/AgreementBox.cs" id="5_6v3bx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
+bg_color = Color(0, 0, 0, 0.407843)
+border_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[node name="RecordsScreen" type="CanvasLayer" node_paths=PackedStringArray("scoreLabel", "playerLabel", "inputPanel", "agreementPanel", "playerButton", "clearButton", "playerEdit", "restartButton", "quitButton", "optionsButton")]
+process_mode = 3
+layer = 3
+script = ExtResource("1_m05ll")
+scoreLabel = NodePath("MainContent/VBoxContainer/HBoxContainer/ScoreLabel")
+playerLabel = NodePath("MainContent/VBoxContainer/HBoxContainer/PlayerLabel")
+inputPanel = NodePath("TextInputBox")
+agreementPanel = NodePath("AgreementBox")
+playerButton = NodePath("TextInputBox/ColorRect/MarginContainer/VBoxContainer/PlayerButton")
+clearButton = NodePath("MainContent/VBoxContainer/ResetButton")
+playerEdit = NodePath("TextInputBox/ColorRect/MarginContainer/VBoxContainer/PlayerEdit")
+restartButton = NodePath("")
+quitButton = NodePath("MainContent/VBoxContainer/QuitButton")
+optionsButton = NodePath("")
+
+[node name="MainContent" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ljes")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContent"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -27.5
+offset_right = 4.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainContent/VBoxContainer"]
+layout_mode = 2
+text = "Records"
+label_settings = ExtResource("3_uc7yu")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContent/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="MainContent/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Player:
+Player:
+Player:
+Player:
+Player:
+Player:
+Player:
+Player:
+Player:
+Player:"
+label_settings = ExtResource("3_r1guv")
+text_direction = 1
+
+[node name="ScoreLabel" type="Label" parent="MainContent/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "0000000
+0000000
+0000000
+0000000
+0000000
+0000000
+0000000
+0000000
+0000000
+0000000
+"
+label_settings = ExtResource("3_r1guv")
+horizontal_alignment = 2
+text_direction = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainContent/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ResetButton" type="Button" parent="MainContent/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5xdny")
+theme_override_font_sizes/font_size = 32
+text = "Reset Records"
+text_direction = 1
+
+[node name="QuitButton" type="Button" parent="MainContent/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5xdny")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+text_direction = 1
+
+[node name="TextInputBox" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(300, 180)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -25.0
+offset_right = 125.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="TextInputBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="TextInputBox/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextInputBox/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextInputBox/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NEW RECORD"
+label_settings = ExtResource("3_r1guv")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="TextInputBox/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PlayerEdit" type="TextEdit" parent="TextInputBox/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_5xdny")
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Write your name"
+
+[node name="HSeparator2" type="HSeparator" parent="TextInputBox/ColorRect/MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PlayerButton" type="Button" parent="TextInputBox/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_5xdny")
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Done"
+
+[node name="AgreementBox" type="Panel" parent="." node_paths=PackedStringArray("btnYes", "btnNo")]
+visible = false
+custom_minimum_size = Vector2(300, 140)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -25.0
+offset_right = 125.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("5_6v3bx")
+btnYes = NodePath("ColorRect/MarginContainer/VBoxContainer/HBoxContainer/YesButton")
+btnNo = NodePath("ColorRect/MarginContainer/VBoxContainer/HBoxContainer/NoButton")
+
+[node name="ColorRect" type="ColorRect" parent="AgreementBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="AgreementBox/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AgreementBox/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Are you sure?"
+label_settings = ExtResource("3_r1guv")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="NoButton" type="Button" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_5xdny")
+theme_override_font_sizes/font_size = 18
+text = "No"
+
+[node name="VSeparator" type="VSeparator" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="YesButton" type="Button" parent="AgreementBox/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_5xdny")
+theme_override_font_sizes/font_size = 18
+text = "Yes"

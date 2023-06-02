@@ -35,7 +35,7 @@ public partial class Bullet : HurtBox, IDespawnable
     }
     public override void Collided(Node2D body)
     {
-        GD.Print("Direct Hit");
+        // GD.Print("Direct Hit");
         foreach (Damageable child in body.GetChildren().OfType<Damageable>())
         {
             child.Hit(MyDamage, Vector2.Zero);
@@ -51,7 +51,7 @@ public partial class Bullet : HurtBox, IDespawnable
     }
     public void Despawn()
     {
-        GD.Print("Bullet despawned");
+        // GD.Print("Bullet despawned");
         this.QueueFree();
     }
 

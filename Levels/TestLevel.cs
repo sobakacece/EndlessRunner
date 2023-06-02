@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO  UI animations?, best score
+//TODO  another cursor, button style
 //"esc" to unpause, music (end it)
 public partial class TestLevel : Node2D
 {
@@ -41,7 +41,7 @@ public partial class TestLevel : Node2D
         {
             dir.ListDirBegin();
             string filename = dir.GetNext();
-            GD.Print($"Found file: {filename}");
+            // GD.Print($"Found file: {filename}");
             while (filename != "")
             {
                 if (filename.Contains("tscn"))

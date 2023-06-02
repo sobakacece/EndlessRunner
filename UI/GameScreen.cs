@@ -4,16 +4,17 @@ using System;
 public partial class GameScreen : CanvasLayer
 {
     // Called when the node enters the scene tree for the first time.
-    [Export] protected Button restartButton, quitButton, optionsButton;
+    [Export] protected Button restartButton, quitButton, optionsButton, recordsButton;
     protected SignalBus signalBus;
-    protected Player player;
+    protected Player MyPlayer;
     protected Node root { get; set; }
     OptionsScreen options;
-    GlobalSettings globalSettings;
+    RecordsScreen records;
+    public GlobalSettings MyGlobalSettings { get => GetNode<GlobalSettings>("/root/GlobalSettings"); }
     public override void _Ready()
     {
-        globalSettings = GetNode<GlobalSettings>("/root/GlobalSettings");
-        options = globalSettings.MyOptionsInstance;
+        options = MyGlobalSettings.MyOptions;
+        records = MyGlobalSettings.MyRecords;
         root = GetTree().Root;
 
         // signalBus.SaveScore += ChangeScore;
@@ -25,6 +26,8 @@ public partial class GameScreen : CanvasLayer
         optionsButton.Connect("pressed", new Callable(this, "OpenOptions"));
         restartButton.Connect("pressed", new Callable(this, "Restart"));
         quitButton.Connect("pressed", new Callable(this, "Quit"));
+        recordsButton.Connect("pressed", new Callable(this, "Records"));
+
         signalBus = GetNode<SignalBus>("/root/SignalBus");
 
     }
@@ -54,8 +57,18 @@ public partial class GameScreen : CanvasLayer
     }
     public virtual void OpenOptions()
     {
-        this.Visible = false;
-        options.Visible = true;
-        options.MyParent = this;
+        ChangeScreen(options);
+        options.ReturnScreen = this;
+    }
+    public virtual void Records()
+    {
+        ChangeScreen(records);
+        records.ReturnScreen = this;
+    }
+
+    public void ChangeScreen(GameScreen newScreen)
+    {
+        Visible = !Visible;
+        newScreen.Visible = !Visible;
     }
 }

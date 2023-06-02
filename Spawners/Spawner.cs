@@ -39,5 +39,10 @@ public partial class Spawner : Node2D
 
     public override void _Process(double delta)
     {
+        if (this.GetChildren().Count == 0)
+        {
+        this.QueueFree();
+        GD.Print("Spawner Dispawned");
+        }
     }
 }

@@ -62,6 +62,4 @@ public partial class Bee : HurtBox, IDespawnable
     {
         playback.Travel("dead");
     }
-
-
 }
