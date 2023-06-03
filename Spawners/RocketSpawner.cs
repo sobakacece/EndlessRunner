@@ -14,7 +14,7 @@ public partial class RocketSpawner : Spawner
 			this.MyHeight = child.Position.Y + 10;
 		}
         MySpawnRange = this.rnd.Next(minRange, maxRange);
-        MyPath = "res://Spawners/rocket_spawner.tscn";
+        MyPath = "res://Spawners/RocketSpawner.tscn";
         // GD.Print($"{this.Name} has spawnrange {MySpawnRange}");
         base._Ready();
 

@@ -16,7 +16,7 @@ public partial class CloudSpawner : Spawner
             MyHeight = rnd.Next((int)child.MyHeight - child.RangeOfRandom / 2, (int)child.MyHeight + child.RangeOfRandom / 2);
         }
         // MyHeight = this.rnd.Next(minHeigth, maxHeight);
-        MyPath = "res://Spawners/cloud_spawner.tscn";
+        MyPath = "res://Spawners/CloudSpawner.tscn";
     }
 
     public override void _Process(double delta)

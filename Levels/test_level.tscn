@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dihmr1j4cpndr"]
+[gd_scene load_steps=10 format=3 uid="uid://cslm5l0j0yxmn"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.cs" id="1_48h0g"]
 [ext_resource type="PackedScene" uid="uid://bif4rqyg2rx44" path="res://UI/UIScore.tscn" id="2_kc8fc"]
 [ext_resource type="Texture2D" uid="uid://bby23v6waklbh" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Tiles.png" id="2_ol687"]
 [ext_resource type="PackedScene" uid="uid://d4fw7ojk5cuiv" path="res://Characters/player.tscn" id="3_ef666"]
-[ext_resource type="PackedScene" uid="uid://t1a2mx11vhj1" path="res://Spawners/grass_spawner.tscn" id="3_gdesc"]
-[ext_resource type="PackedScene" uid="uid://bmnfff1dwn3wu" path="res://Spawners/cloud_spawner.tscn" id="6_0wjf7"]
+[ext_resource type="PackedScene" uid="uid://bmnfff1dwn3wu" path="res://Spawners/CloudSpawner.tscn" id="6_0wjf7"]
+[ext_resource type="PackedScene" uid="uid://t1a2mx11vhj1" path="res://Spawners/GrassSpawner.tscn" id="6_32vy3"]
+[ext_resource type="PackedScene" uid="uid://mlo3t8g12npp" path="res://Spawners/TreeSpawner.tscn" id="7_6smea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ekpe"]
 texture = ExtResource("2_ol687")
@@ -2582,29 +2583,38 @@ position = Vector2(152.667, 129.333)
 
 [node name="Grass" type="Node2D" parent="Decor"]
 
-[node name="grass_spawner" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(85.6667, -3.33329)
+[node name="GrassSpawner" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(-140.334, -2.66632)
 
-[node name="grass_spawner6" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(133.333, -2.66663)
+[node name="GrassSpawner2" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(-11.3337, -2.66632)
 
-[node name="grass_spawner7" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(180, -3.66663)
+[node name="GrassSpawner6" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(146.666, -2.66632)
 
-[node name="grass_spawner8" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(221.667, -3.99995)
+[node name="GrassSpawner10" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(202, -2.66632)
 
-[node name="grass_spawner2" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(37.3333, -2.99995)
+[node name="GrassSpawner11" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(178, -2.66632)
 
-[node name="grass_spawner3" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(-4.66666, -2.66663)
+[node name="GrassSpawner7" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(101.666, -2.66632)
 
-[node name="grass_spawner4" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(-49, -2.99995)
+[node name="GrassSpawner8" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(60.9996, -2.66632)
 
-[node name="grass_spawner5" parent="Decor/Grass" instance=ExtResource("3_gdesc")]
-position = Vector2(-80.6667, -2.66663)
+[node name="GrassSpawner9" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(24.6663, -2.66632)
+
+[node name="GrassSpawner3" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(-52.3337, -2.66632)
+
+[node name="GrassSpawner4" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(-91.667, -2.66632)
+
+[node name="GrassSpawner5" parent="Decor/Grass" instance=ExtResource("6_32vy3")]
+position = Vector2(-121, -2.66632)
 
 [node name="Clouds" type="Node2D" parent="Decor"]
 
@@ -2622,3 +2632,6 @@ position = Vector2(206.333, -84.3333)
 
 [node name="cloud_spawner5" parent="Decor/Clouds" instance=ExtResource("6_0wjf7")]
 position = Vector2(42, -86)
+
+[node name="TreeSpawner" parent="Decor" instance=ExtResource("7_6smea")]
+position = Vector2(212.333, -15.9996)
