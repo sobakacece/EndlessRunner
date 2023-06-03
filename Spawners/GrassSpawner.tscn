@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://t1a2mx11vhj1"]
+
+[ext_resource type="Script" path="res://Spawners/GrassSpawner.cs" id="1_osf4r"]
+[ext_resource type="PackedScene" uid="uid://bs3siurc3ybvk" path="res://Decorations/Grass/grass_1.tscn" id="2_oxyq1"]
+[ext_resource type="PackedScene" uid="uid://bhqoimfqrrqsv" path="res://Decorations/Grass/grass_2.tscn" id="3_2x2dm"]
+[ext_resource type="PackedScene" uid="uid://brny2eupn64g" path="res://Decorations/Grass/grass_3.tscn" id="4_k0p2a"]
+[ext_resource type="PackedScene" uid="uid://b6tmd6vx3df7d" path="res://Decorations/Grass/grass_4.tscn" id="5_12ea3"]
+
+[node name="GrassSpawner" type="Node2D"]
+script = ExtResource("1_osf4r")
+MyHeight = -5.0
+MySpawnRange = 50.0
+
+[node name="grass_1" parent="." instance=ExtResource("2_oxyq1")]
+position = Vector2(0, 0)
+
+[node name="grass_2" parent="." instance=ExtResource("3_2x2dm")]
+
+[node name="grass_3" parent="." instance=ExtResource("4_k0p2a")]
+
+[node name="grass_4" parent="." instance=ExtResource("5_12ea3")]

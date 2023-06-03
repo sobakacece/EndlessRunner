@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmnfff1dwn3wu"]
+
+[ext_resource type="Script" path="res://Spawners/CloudSpawner.cs" id="1_5kb0l"]
+[ext_resource type="PackedScene" uid="uid://k0qdjn6d5lfc" path="res://Decorations/Clouds/cloud_1.tscn" id="2_i1ig4"]
+[ext_resource type="PackedScene" uid="uid://dd4d8wjj8epwy" path="res://Decorations/Clouds/cloud_2.tscn" id="3_uh5qr"]
+[ext_resource type="PackedScene" uid="uid://dhaeode5s8564" path="res://Decorations/Clouds/cloud_3.tscn" id="4_dod6l"]
+[ext_resource type="PackedScene" uid="uid://beap127f2kbv5" path="res://Decorations/Clouds/cloud_4.tscn" id="5_uaee7"]
+
+[node name="CloudSpawner" type="Node2D"]
+script = ExtResource("1_5kb0l")
+speed = 100.0
+minHeigth = 25
+maxHeight = 250
+MyHeight = -200.0
+MySpawnRange = 100.0
+
+[node name="cloud_1" parent="." instance=ExtResource("2_i1ig4")]
+
+[node name="cloud_2" parent="." instance=ExtResource("3_uh5qr")]
+
+[node name="cloud_3" parent="." instance=ExtResource("4_dod6l")]
+
+[node name="cloud_4" parent="." instance=ExtResource("5_uaee7")]

@@ -9,7 +9,7 @@ public partial class GrassSpawner : Spawner
     {
         base._Ready();
         // MyHeight = this.rnd.Next(minHeigth, maxHeight);
-        MyPath = "res://Spawners/grass_spawner.tscn";
+        MyPath = "res://Spawners/GrassSpawner.tscn";
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

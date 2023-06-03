@@ -45,10 +45,15 @@ public partial class TestLevel : Node2D
             {
                 if (filename.Contains("tscn"))
                 {
-                pathes.Add(InstantiateSpawner(path + filename));
-                // GD.Print($"Found file: {filename}");
+                    string tmp = path + filename;
+                    // if (tmp.Contains(".remap"))
+                    if (tmp.EndsWith(".remap"))
+                    tmp = tmp.TrimSuffix(".remap"); //so while exporting for some reason Godot renames dynamic pathes as ".remap". So we deleting those;
+                    GD.Print(tmp);
+                    pathes.Add(InstantiateSpawner(tmp));
+                    // GD.Print($"Found file: {filename}");
                 }
-                 
+
                 filename = dir.GetNext();
             }
         }
