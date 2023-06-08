@@ -6,10 +6,6 @@ public abstract partial class HurtBox : Area2D
 {
     // Called when the node enters the scene tree for the first time.
     public abstract int MyDamage { get; set; }
-    public override void _Ready()
-    {
-        // ConnectToArea();
-    }
     public virtual void Collided(Node2D body)
     {
         foreach (Damageable child in body.GetChildren().OfType<Damageable>())

@@ -11,9 +11,9 @@ public partial class DeadState : State
     {
 
         gameOverScreen = (PackedScene)ResourceLoader.Load("res://UI/GameOverScreen.tscn");
-        MyAnimationTree.Connect("animation_finished", new Callable(this, "AnimationFinished"));
+        MyAnimationTree.AnimationFinished += AnimationFinished;
     }
-    public void AnimationFinished(string anim_name)
+    public void AnimationFinished(StringName anim_name)
     {
         if (MyCharacter is Player && anim_name == animaDeadNode)
         {
@@ -27,10 +27,6 @@ public partial class DeadState : State
         }
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-    }
     public override void OnEnter()
     {
         MyAudio.Play();

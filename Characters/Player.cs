@@ -11,7 +11,6 @@ public partial class Player : CharacterBody2D
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
     AnimationTree animationTree;
-    AnimationNodeStateMachinePlayback playback;
     CharacterStateMachine stateMachine;
     Damageable damageableComponent;
     PackedScene gamePausedScreen;
@@ -28,7 +27,6 @@ public partial class Player : CharacterBody2D
         animationTree = this.GetNode<AnimationTree>("AnimationTree");
         animationTree.Active = true;
 
-        playback = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
         stateMachine = this.GetNode<CharacterStateMachine>("CharacterStateMachine");
 
         damageableComponent = this.GetNode<Damageable>("Damageable");
@@ -40,8 +38,6 @@ public partial class Player : CharacterBody2D
 
         if (!IsOnFloor() && stateMachine.CurrentState.ToString() != "Dead")
             velocity.Y += gravity * (float)delta;
-
-
 
         direction = Vector2.Right;
         if (stateMachine.IsMoveable() && stateMachine.CurrentState.ToString() != "Hit")

@@ -45,7 +45,6 @@ public partial class Bullet : HurtBox, IDespawnable
     }
     public void ConnectToNotifier()
     {
-
         notifier = GetNode<VisibleOnScreenNotifier2D>("Notifier");
         notifier.Connect("screen_exited", new Callable(this, "Despawn"));
     }

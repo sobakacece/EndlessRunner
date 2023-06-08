@@ -42,7 +42,6 @@ public partial class Spawner : Node2D
         if (this.GetChildren().Count == 0)
         {
         this.QueueFree();
-        GD.Print("Spawner Dispawned");
         }
     }
 }

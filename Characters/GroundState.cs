@@ -14,15 +14,6 @@ public partial class GroundState : State
         airState = MyStateMachine.GetNode<State>("Air");
         attackState = MyStateMachine.GetNode<State>("Attack");
     }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-        // if (Input.IsActionPressed("jump") && jumpVelocity <= jumpThreshold)
-        // {
-        //     jumpVelocity+= jumpHolding;
-        // }
-    }
     public override void StateInput(InputEvent @event)
     {
         if (@event.IsActionReleased("jump"))

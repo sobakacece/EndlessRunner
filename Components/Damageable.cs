@@ -10,13 +10,11 @@ public partial class Damageable : Node
     public override void _Ready()
     {
         signalBus = GetNode<SignalBus>("/root/SignalBus");
-        
+
         var animTree = GetParent().GetNode<AnimationTree>("AnimationTree");
-        animTree.Connect("animation_finished", new Callable(this, "Dead_Animation_Finished"));
+        animTree.AnimationFinished += Dead_Animation_Finished;
     }
-    // Called when the node enters the scene tree for the first time.
-    [Export]
-    private int health = 20;
+    [Export] private int health = 20;
     public int MyHealth
     {
         get => health;
@@ -33,7 +31,7 @@ public partial class Damageable : Node
         // GD.Print("Damage: " + damage);
         EmitSignal(SignalName.OnHit, GetParent(), damage, knockbackDirection);
     }
-    public void Dead_Animation_Finished(string anim_name)
+    public void Dead_Animation_Finished(StringName anim_name)
     {
         if (anim_name == deadAnimationNode)
         {

@@ -26,25 +26,22 @@ public partial class HealthBar : BoxContainer
     public override void _Ready()
     {
         player = (Player)GetNode("/root/TestLevel/Player");
-        startingPoint = player.GlobalPosition.X;
 
-        acceleration = player.MyAccelaration;
-        scoreDelta = player.MyAccelerationDelta;
 
         healthBar = this.GetNode<BoxContainer>("HealthBar");
         scoreLabel = this.GetNode<Label>("ScoreContainer/Score");
-        // GD.Print("Order: UI");
-        packedHP = (PackedScene)ResourceLoader.Load("res://UI/hp.tscn");
         signalBus = GetNode<SignalBus>("/root/SignalBus");
-        signalBus.Restart += OnRestart;
-
-
         global = GetNode<GlobalSettings>("/root/GlobalSettings");
-        signalBus.HealthChanged += ChangeTexture;
-        ParsingPlayer();
 
-        // signalBus.PlayerEnteredScene += ParsingPlayer; //TODO Remove this shit and do it in a normal way
-        // signalBus.PlayerDead += () => signalBus.EmitSignal(SignalBus.SignalName.SaveScore, currentScore);
+        packedHP = (PackedScene)ResourceLoader.Load("res://UI/hp.tscn");
+
+        startingPoint = player.GlobalPosition.X;
+        acceleration = player.MyAccelaration;
+        scoreDelta = player.MyAccelerationDelta;
+
+        signalBus.Restart += OnRestart;
+        signalBus.HealthChanged += DecreasePlayerHP;
+        CreatingHealtbar();
     }
     public void OnRestart()
     {
@@ -54,11 +51,10 @@ public partial class HealthBar : BoxContainer
         }
         hpList = new List<HPContainer>();
         counter = 1;
-        ParsingPlayer();
+        CreatingHealtbar();
     }
-    public void ParsingPlayer()
+    public void CreatingHealtbar()
     {
-        // GD.Print("Player Parsed");
         for (int i = 0; i < player.PlayerHealth; i++)
         {
             HPContainer healthPoint = (HPContainer)packedHP.Instantiate();
@@ -66,13 +62,6 @@ public partial class HealthBar : BoxContainer
             hpList.Add(healthPoint);
         }
     }
-    public override void _EnterTree()
-    {
-
-
-    }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
 
@@ -84,7 +73,7 @@ public partial class HealthBar : BoxContainer
         Accelerate();
         global.FinalScore = currentScore;
     }
-    public void ChangeTexture(Node node, int damage)
+    public void DecreasePlayerHP(Node node, int damage)
     {
         if (node is Player)
         {

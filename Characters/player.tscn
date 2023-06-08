@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Characters/GroundState.cs" id="5_1nqp1"]
 [ext_resource type="Script" path="res://Characters/AirState.cs" id="6_u1yhw"]
 [ext_resource type="Script" path="res://Components/HitState.cs" id="7_fitdc"]
-[ext_resource type="Script" path="res://Characters/StateDebug.cs" id="8_8nrdf"]
+[ext_resource type="Script" path="res://Components/StateDebug.cs" id="8_8nrdf"]
 [ext_resource type="Script" path="res://Characters/DeadState.cs" id="9_0vf5k"]
 [ext_resource type="AudioStream" uid="uid://c5jej4ofh0dek" path="res://Art/Audio/Jump.wav" id="9_m6s5t"]
 [ext_resource type="Script" path="res://Components/Damageable.cs" id="9_rsrrl"]

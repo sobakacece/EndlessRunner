@@ -12,8 +12,6 @@ public partial class HitState : State
     State deadState;
     [Export]
     State returnState;
-    // [Export]
-    // CharacterStateMachine characterStateMachine;
     Timer timer;
 
     string deadAnimationNode = "dead";
@@ -56,12 +54,10 @@ public partial class HitState : State
         {
             MyCharacter.Velocity = knockbackSpeed * knockbackDirection;
             EmitSignal(SignalName.InterruptState, this);
-            // GD.Print(MyCharacter.Velocity.ToString());
-            // GD.Print("Health: " + damageable.MyHealth);
         }
         else
         {
-            GD.Print("dead");
+            // GD.Print("dead");
             EmitSignal(SignalName.InterruptState, deadState);
             playback.Travel(deadAnimationNode);
         }

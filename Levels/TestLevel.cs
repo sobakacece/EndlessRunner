@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-//TODO  button style
+//TODO  transfer Notifiers from objects to spawners. 
 public partial class TestLevel : Node2D
 {
     private Player player;
@@ -24,7 +24,8 @@ public partial class TestLevel : Node2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        tileMap.GlobalPosition = new Vector2(player.GlobalPosition.X, tileMap.GlobalPosition.Y);
+        Vector2 playerPosition = new Vector2(player.GlobalPosition.X, tileMap.GlobalPosition.Y);
+        tileMap.GlobalPosition = playerPosition;
 
         for (spawnerCounter = 0; spawnerCounter < spawnerList.Count; spawnerCounter++)
         {
@@ -49,7 +50,7 @@ public partial class TestLevel : Node2D
                     // if (tmp.Contains(".remap"))
                     if (tmp.EndsWith(".remap"))
                     tmp = tmp.TrimSuffix(".remap"); //so while exporting for some reason Godot renames dynamic pathes as ".remap". So we deleting those;
-                    GD.Print(tmp);
+
                     pathes.Add(InstantiateSpawner(tmp));
                     // GD.Print($"Found file: {filename}");
                 }
@@ -64,9 +65,6 @@ public partial class TestLevel : Node2D
         return pathes;
     }
 
-
-
-    // }
     private void Spawn(Spawner spawner)
     {
 

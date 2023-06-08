@@ -14,40 +14,21 @@ public partial class GlobalSettings : Node
     public ConfigFile config;
     public AudioStreamPlayer GlobalMusic {get => GetNode<AudioStreamPlayer>("/root/GameMusic");}
     public float FinalScore { get; set; }
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         config = new ConfigFile();
-        // CreateFile();
         LoadScores();
 
         optionsInstance = (OptionsScreen)AddGlobalScreen("res://UI/OptionsScreen.tscn");
         creditsInstance = (CreditsScreen)AddGlobalScreen("res://UI/CreditsScreen.tscn");
         recordsIntstance = (RecordsScreen)AddGlobalScreen("res://UI/RecordsScreen.tscn");
 
-        // busEffect = AudioServer.GetBusIndex("Effect");
-        // busMusic = AudioServer.GetBusIndex("Music");
         busMaster = AudioServer.GetBusIndex("Master");  
 
         GlobalSlider = MyOptions.GlobalSlider;
-        // VFXslider.Connect("drag_ended", new Callable(this, "VFX"));
         GlobalSlider.Connect("drag_ended", new Callable(this, "Master"));
-        // MusicSlider.Connect("drag_ended", new Callable(this, "Music"));
 
     }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-    }
-    // public void VFX(bool value)
-    // {
-    //     ChangeVolume(busEffect, VFXslider);
-    // }
-    // public void Music(bool value)
-    // {
-    //     ChangeVolume(busMusic, MusicSlider);
-    // }
     public void Master(bool value)
     {
         ChangeVolume(busMaster, GlobalSlider);
