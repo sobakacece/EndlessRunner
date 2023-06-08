@@ -10,7 +10,7 @@ public partial class AttackState : State
         airState = MyStateMachine.GetNode<State>("Air");
         groundState = MyStateMachine.GetNode<State>("Ground");
 
-        bulletScene = (PackedScene)ResourceLoader.Load("res://bullet.tscn");
+        bulletScene = (PackedScene)ResourceLoader.Load("res://Props/bullet.tscn");
         MyAnimationTree.Connect("animation_finished", new Callable(this, "Animation_Finished"));
     }
 

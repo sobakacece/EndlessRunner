@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkqyqtm82yld2"
-path="res://.godot/imported/Tiles.png-346f4e69e159c155b25a37147c179279.ctex"
+uid="uid://veq5sudgw6hf"
+path="res://.godot/imported/cloud_4.png-0b7aa96937a0461b7de92d3409947310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Assets/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-346f4e69e159c155b25a37147c179279.ctex"]
+source_file="res://Art/Obstacles/Clouds/cloud_4.png"
+dest_files=["res://.godot/imported/cloud_4.png-0b7aa96937a0461b7de92d3409947310.ctex"]
 
 [params]
 

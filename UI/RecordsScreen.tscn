@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4tbijfdf2av2"]
+[gd_scene load_steps=10 format=3 uid="uid://bhgkg1gw535k3"]
 
 [ext_resource type="Script" path="res://UI/RecordsScreen.cs" id="1_m05ll"]
 [ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="3_r1guv"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="3_uc7yu"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_5xdny"]
 [ext_resource type="Script" path="res://UI/AgreementBox.cs" id="5_6v3bx"]
-[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="5_yneeq"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://UI/LabelButton.tres" id="5_774jk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -130,7 +130,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Reset Records"
-label_settings = ExtResource("5_yneeq")
+label_settings = ExtResource("5_774jk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -148,7 +148,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
-label_settings = ExtResource("5_yneeq")
+label_settings = ExtResource("5_774jk")
 horizontal_alignment = 1
 vertical_alignment = 1
 

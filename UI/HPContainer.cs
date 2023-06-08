@@ -7,7 +7,7 @@ public partial class HPContainer : TextureRect
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        MyemptyHPTexture = (Texture2D)ResourceLoader.Load("res://UI/hp_empty.png");
+        MyemptyHPTexture = (Texture2D)ResourceLoader.Load("res://Art/UI/hp_empty.png");
 
     }
 

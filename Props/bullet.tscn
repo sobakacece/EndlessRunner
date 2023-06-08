@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct80dbuvqkep6"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://Bullet.cs" id="1_iy7ah"]
+[ext_resource type="Script" path="res://Props/Bullet.cs" id="1_iy7ah"]
 [ext_resource type="Texture2D" uid="uid://c64rjaihfpooc" path="res://Art/Retro-Lines-16x16/bullet.png" id="2_qe6ix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jacx6"]

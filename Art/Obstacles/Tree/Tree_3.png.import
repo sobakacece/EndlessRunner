@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be0r7i47k70ug"
-path="res://.godot/imported/rocket_bot_hit.png-5584c0480d6cb2ad49c484f232b08181.ctex"
+uid="uid://24o2svc40tv4"
+path="res://.godot/imported/Tree_3.png-215f749859c6c9dd1c847e69c6015f36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Retro-Lines-16x16/rocket_bot_hit.png"
-dest_files=["res://.godot/imported/rocket_bot_hit.png-5584c0480d6cb2ad49c484f232b08181.ctex"]
+source_file="res://Art/Obstacles/Tree/Tree_3.png"
+dest_files=["res://.godot/imported/Tree_3.png-215f749859c6c9dd1c847e69c6015f36.ctex"]
 
 [params]
 

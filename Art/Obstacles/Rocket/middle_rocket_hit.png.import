@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp8b21mx4yiwc"
-path="res://.godot/imported/rocket_top_hit.png-f8d797ab3935bb30cb0dc36068faac78.ctex"
+uid="uid://b47fiyxlnioyy"
+path="res://.godot/imported/middle_rocket_hit.png-9d44fd9bac1678151f81e6c420187f0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Retro-Lines-16x16/rocket_top_hit.png"
-dest_files=["res://.godot/imported/rocket_top_hit.png-f8d797ab3935bb30cb0dc36068faac78.ctex"]
+source_file="res://Art/Obstacles/Rocket/middle_rocket_hit.png"
+dest_files=["res://.godot/imported/middle_rocket_hit.png-9d44fd9bac1678151f81e6c420187f0e.ctex"]
 
 [params]
 

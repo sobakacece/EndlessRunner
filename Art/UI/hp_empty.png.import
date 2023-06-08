@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c82mrh7jnicda"
-path="res://.godot/imported/hp_full.png-4ff4f9ecc259cee4d61076a832df5fa7.ctex"
+uid="uid://c56yfasi22w8s"
+path="res://.godot/imported/hp_empty.png-9fe2f110b803e7d3f02b51d12c70d2ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Retro-Lines-16x16/hp_full.png"
-dest_files=["res://.godot/imported/hp_full.png-4ff4f9ecc259cee4d61076a832df5fa7.ctex"]
+source_file="res://Art/UI/hp_empty.png"
+dest_files=["res://.godot/imported/hp_empty.png-9fe2f110b803e7d3f02b51d12c70d2ba.ctex"]
 
 [params]
 

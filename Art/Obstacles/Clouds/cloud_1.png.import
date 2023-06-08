@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://24o2svc40tv4"
-path="res://.godot/imported/Tree_3.png-e9b99135d12c5c7a26a7321788976e76.ctex"
+uid="uid://dggnvuyu1segh"
+path="res://.godot/imported/cloud_1.png-efaa57330da2c634f87f0c4e2240c667.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Obstacles/Tree_3.png"
-dest_files=["res://.godot/imported/Tree_3.png-e9b99135d12c5c7a26a7321788976e76.ctex"]
+source_file="res://Art/Obstacles/Clouds/cloud_1.png"
+dest_files=["res://.godot/imported/cloud_1.png-efaa57330da2c634f87f0c4e2240c667.ctex"]
 
 [params]
 

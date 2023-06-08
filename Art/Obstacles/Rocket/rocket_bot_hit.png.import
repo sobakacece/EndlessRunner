@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://covrgn7i17y2c"
-path="res://.godot/imported/Buildings.png-37d01a4e003240add46081b5be25547b.ctex"
+uid="uid://be0r7i47k70ug"
+path="res://.godot/imported/rocket_bot_hit.png-12e0278d47221f0b137d74ef531a7017.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Assets/Buildings.png"
-dest_files=["res://.godot/imported/Buildings.png-37d01a4e003240add46081b5be25547b.ctex"]
+source_file="res://Art/Obstacles/Rocket/rocket_bot_hit.png"
+dest_files=["res://.godot/imported/rocket_bot_hit.png-12e0278d47221f0b137d74ef531a7017.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7xcg83p12ggu"
-path="res://.godot/imported/Interior-01.png-39891957b90de0d4f2a07d48b85c9f9c.ctex"
+uid="uid://cga5ckpk0u6pi"
+path="res://.godot/imported/rocket_top.png-1b724a2934024e4d6c1ed2539ccf65fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Assets/Interior-01.png"
-dest_files=["res://.godot/imported/Interior-01.png-39891957b90de0d4f2a07d48b85c9f9c.ctex"]
+source_file="res://Art/Obstacles/Rocket/rocket_top.png"
+dest_files=["res://.godot/imported/rocket_top.png-1b724a2934024e4d6c1ed2539ccf65fc.ctex"]
 
 [params]
 

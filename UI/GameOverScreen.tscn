@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://gktsbfdse5wf"]
+[gd_scene load_steps=7 format=3 uid="uid://d2rgcr36ipl8r"]
 
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="1_0vfrn"]
 [ext_resource type="Script" path="res://UI/GameOverScreen.cs" id="1_gkhc5"]
 [ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="2_srqwo"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="3_0i0dp"]
-[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="5_wusn4"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://UI/LabelButton.tres" id="5_fo0ii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -78,7 +78,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Restart"
-label_settings = ExtResource("5_wusn4")
+label_settings = ExtResource("5_fo0ii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -96,7 +96,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Options"
-label_settings = ExtResource("5_wusn4")
+label_settings = ExtResource("5_fo0ii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -114,7 +114,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Records"
-label_settings = ExtResource("5_wusn4")
+label_settings = ExtResource("5_fo0ii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -132,6 +132,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
-label_settings = ExtResource("5_wusn4")
+label_settings = ExtResource("5_fo0ii")
 horizontal_alignment = 1
 vertical_alignment = 1

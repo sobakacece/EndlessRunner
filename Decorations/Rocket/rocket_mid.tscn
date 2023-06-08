@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqm0scjpqfkem"]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://Decorations/Rocket/Rocket.cs" id="1_srwg0"]
-[ext_resource type="Texture2D" uid="uid://cwi5mpftvhwxd" path="res://Art/Retro-Lines-16x16/rocket_mid.png" id="2_1ox0y"]
-[ext_resource type="Script" path="res://Damageable.cs" id="3_x1px6"]
-[ext_resource type="Texture2D" uid="uid://b47fiyxlnioyy" path="res://Art/Retro-Lines-16x16/middle_rocket_hit.png" id="4_x0d6h"]
+[ext_resource type="Texture2D" uid="uid://cwi5mpftvhwxd" path="res://Art/Obstacles/Rocket/rocket_mid.png" id="2_1ox0y"]
+[ext_resource type="Script" path="res://Components/Damageable.cs" id="3_x1px6"]
+[ext_resource type="Texture2D" uid="uid://b47fiyxlnioyy" path="res://Art/Obstacles/Rocket/middle_rocket_hit.png" id="4_x0d6h"]
 [ext_resource type="AudioStream" uid="uid://blobd8kxdnten" path="res://Art/Audio/Enemy_Hit.wav" id="5_0282b"]
 [ext_resource type="Script" path="res://addons/MusicSettings/AudioStreamPlayerVFX.cs" id="6_b285i"]
 

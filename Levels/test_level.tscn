@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://cslm5l0j0yxmn"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.cs" id="1_48h0g"]
-[ext_resource type="PackedScene" uid="uid://bif4rqyg2rx44" path="res://UI/UIScore.tscn" id="2_kc8fc"]
+[ext_resource type="PackedScene" uid="uid://ct7ue4ilytrqy" path="res://UI/UIScore.tscn" id="2_kc8fc"]
 [ext_resource type="Texture2D" uid="uid://bby23v6waklbh" path="res://Art/Retro-Lines-16x16/With-Background/Retro-Lines-Tiles.png" id="2_ol687"]
-[ext_resource type="PackedScene" uid="uid://d4fw7ojk5cuiv" path="res://Characters/player.tscn" id="3_ef666"]
+[ext_resource type="PackedScene" path="res://Characters/player.tscn" id="3_ef666"]
 [ext_resource type="PackedScene" uid="uid://bmnfff1dwn3wu" path="res://Spawners/CloudSpawner.tscn" id="6_0wjf7"]
 [ext_resource type="PackedScene" uid="uid://t1a2mx11vhj1" path="res://Spawners/GrassSpawner.tscn" id="6_32vy3"]
 [ext_resource type="PackedScene" uid="uid://mlo3t8g12npp" path="res://Spawners/TreeSpawner.tscn" id="7_6smea"]

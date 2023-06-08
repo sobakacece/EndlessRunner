@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://l4qn6b6cxbpk"]
+[gd_scene load_steps=18 format=3 uid="uid://bkeog5v0cn1pc"]
 
 [ext_resource type="Texture2D" uid="uid://svfolhpw4t0m" path="res://Art/Retro-Lines-16x16/With-Background/bee_hit.png" id="1_d0xu2"]
 [ext_resource type="Script" path="res://Decorations/Obstacles/Bee.cs" id="1_x4dw7"]
-[ext_resource type="Script" path="res://Damageable.cs" id="2_glq3v"]
+[ext_resource type="Script" path="res://Components/Damageable.cs" id="3_1pkwu"]
 [ext_resource type="Texture2D" uid="uid://cpsgpp3uymtvs" path="res://Art/Retro-Lines-16x16/With-Background/bee.png" id="3_oi8ky"]
 [ext_resource type="AudioStream" uid="uid://blobd8kxdnten" path="res://Art/Audio/Enemy_Hit.wav" id="5_hlvfh"]
 [ext_resource type="Script" path="res://addons/MusicSettings/AudioStreamPlayerVFX.cs" id="6_qp8tm"]
@@ -147,7 +147,7 @@ hframes = 4
 shape = SubResource("CircleShape2D_o8a50")
 
 [node name="Damageable" type="Node" parent="."]
-script = ExtResource("2_glq3v")
+script = ExtResource("3_1pkwu")
 health = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

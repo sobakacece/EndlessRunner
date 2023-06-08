@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr4gxkwxivgly"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Spawners/Tree.cs" id="1_eygm8"]
-[ext_resource type="Texture2D" uid="uid://bl83yygs4h84n" path="res://Art/Obstacles/Tree_2.png" id="2_ld12t"]
+[ext_resource type="Script" path="res://Decorations/Obstacles/Tree.cs" id="1_eygm8"]
+[ext_resource type="Texture2D" uid="uid://bl83yygs4h84n" path="res://Art/Obstacles/Tree/Tree_2.png" id="2_ld12t"]
 
 [node name="Tree" type="Area2D"]
 scale = Vector2(0.8, 0.8)

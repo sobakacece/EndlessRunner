@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwi5mpftvhwxd"
-path="res://.godot/imported/rocket_mid.png-f9f088206bd414d00a8e4d1cea671e97.ctex"
+uid="uid://b5dcoanvnk4kf"
+path="res://.godot/imported/cloud_3.png-13f1496aafb205e2782f54f8ab33efd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Retro-Lines-16x16/rocket_mid.png"
-dest_files=["res://.godot/imported/rocket_mid.png-f9f088206bd414d00a8e4d1cea671e97.ctex"]
+source_file="res://Art/Obstacles/Clouds/cloud_3.png"
+dest_files=["res://.godot/imported/cloud_3.png-13f1496aafb205e2782f54f8ab33efd9.ctex"]
 
 [params]
 

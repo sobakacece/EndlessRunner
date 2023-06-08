@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c56yfasi22w8s"
-path="res://.godot/imported/hp_empty.png-b16709965806d0c7a1eb85a930bcce5a.ctex"
+uid="uid://blh77d2s2cdoj"
+path="res://.godot/imported/Tree_1.png-64a6742f300845fb70f758f3b36340f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Retro-Lines-16x16/hp_empty.png"
-dest_files=["res://.godot/imported/hp_empty.png-b16709965806d0c7a1eb85a930bcce5a.ctex"]
+source_file="res://Art/Obstacles/Tree/Tree_1.png"
+dest_files=["res://.godot/imported/Tree_1.png-64a6742f300845fb70f758f3b36340f0.ctex"]
 
 [params]
 

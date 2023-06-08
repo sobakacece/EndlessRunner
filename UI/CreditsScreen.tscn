@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://but0x0c3frmod"]
+[gd_scene load_steps=7 format=3 uid="uid://c64mdh5co4fhw"]
 
 [ext_resource type="Script" path="res://UI/CreditsScreen.cs" id="1_onlqq"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_y5ax2"]
 [ext_resource type="LabelSettings" uid="uid://cnpw6nkcqql53" path="res://UI/SmallLabel.tres" id="3_1rj0n"]
-[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="5_woca0"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://UI/LabelButton.tres" id="5_rnexv"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="6_tsxn0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
@@ -84,6 +84,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
-label_settings = ExtResource("5_woca0")
+label_settings = ExtResource("5_rnexv")
 horizontal_alignment = 1
 vertical_alignment = 1

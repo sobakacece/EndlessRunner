@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc0kgn2ks801w"]
+[gd_scene load_steps=9 format=3 uid="uid://cg0gn11hshmuw"]
 
 [ext_resource type="Script" path="res://UI/OptionsScreen.cs" id="1_1py0l"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_stjoi"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2hewgooqpmda" path="res://UI/checked.png" id="4_cnu5t"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="4_kyaat"]
 [ext_resource type="Texture2D" uid="uid://b84w2aw8xkxtb" path="res://UI/unchecked.png" id="4_twbd2"]
-[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="7_rfuoh"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://UI/LabelButton.tres" id="7_rbbu7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -190,7 +190,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Credits"
-label_settings = ExtResource("7_rfuoh")
+label_settings = ExtResource("7_rbbu7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -208,6 +208,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
-label_settings = ExtResource("7_rfuoh")
+label_settings = ExtResource("7_rbbu7")
 horizontal_alignment = 1
 vertical_alignment = 1

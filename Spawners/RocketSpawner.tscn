@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://db75gniclmgva"]
 
 [ext_resource type="Script" path="res://Spawners/RocketSpawner.cs" id="1_uub8w"]
-[ext_resource type="PackedScene" uid="uid://b7c6p0cekyhco" path="res://Decorations/Rocket/rocket_bot.tscn" id="2_7u6ee"]
-[ext_resource type="PackedScene" uid="uid://dqm0scjpqfkem" path="res://Decorations/Rocket/rocket_mid.tscn" id="3_iwygl"]
-[ext_resource type="PackedScene" uid="uid://bq0x3ejsn0r56" path="res://Decorations/Rocket/rocket_top.tscn" id="4_q0ga1"]
+[ext_resource type="PackedScene" path="res://Decorations/Rocket/rocket_bot.tscn" id="2_7u6ee"]
+[ext_resource type="PackedScene" path="res://Decorations/Rocket/rocket_mid.tscn" id="3_iwygl"]
+[ext_resource type="PackedScene" path="res://Decorations/Rocket/rocket_top.tscn" id="4_q0ga1"]
 
 [node name="RocketSpawner" type="Node2D"]
 script = ExtResource("1_uub8w")

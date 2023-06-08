@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhaeode5s8564"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://b5dcoanvnk4kf" path="res://Art/Retro-Lines-16x16/Clouds/cloud_3.png" id="1_7x3xf"]
+[ext_resource type="Texture2D" uid="uid://b5dcoanvnk4kf" path="res://Art/Obstacles/Clouds/cloud_3.png" id="1_7x3xf"]
 [ext_resource type="Script" path="res://Decorations/Clouds/Cloud.cs" id="2_kkl5f"]
 
 [node name="cloud_3" type="Sprite2D"]

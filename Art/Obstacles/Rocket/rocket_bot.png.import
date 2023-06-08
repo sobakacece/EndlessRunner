@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcqqid0obi5ho"
-path="res://.godot/imported/Hive.png-62be137762fa901917f22effd3796d43.ctex"
+uid="uid://dw3x6cvygwvl8"
+path="res://.godot/imported/rocket_bot.png-d9e73dff6c0e4be9f3d5df36324ee6ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Assets/Hive.png"
-dest_files=["res://.godot/imported/Hive.png-62be137762fa901917f22effd3796d43.ctex"]
+source_file="res://Art/Obstacles/Rocket/rocket_bot.png"
+dest_files=["res://.godot/imported/rocket_bot.png-d9e73dff6c0e4be9f3d5df36324ee6ea.ctex"]
 
 [params]
 

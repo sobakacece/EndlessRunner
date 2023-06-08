@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://brir2wqa2tj1w"]
+[gd_scene load_steps=8 format=3 uid="uid://rgyk3mxuex6c"]
 
 [ext_resource type="Script" path="res://UI/MainMenuScreen.cs" id="1_lf2cl"]
 [ext_resource type="LabelSettings" uid="uid://chbk3ygo3m42q" path="res://UI/MainLabel.tres" id="2_a1fwf"]
-[ext_resource type="Theme" uid="uid://b3xv23b4fh5n3" path="res://Default_Theme.tres" id="2_n1cq6"]
 [ext_resource type="FontFile" uid="uid://d1awg77ymnjoc" path="res://Art/Fonts/Underdog-Regular.ttf" id="3_jiaq1"]
 [ext_resource type="AudioStream" uid="uid://bicv3m7ket6ro" path="res://Art/Audio/Music/MainMenuMusic.ogg" id="4_36glt"]
+[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://UI/LabelButton.tres" id="4_g0ok8"]
 [ext_resource type="Script" path="res://addons/MusicSettings/AudioStreamPlayerMusic.cs" id="5_1vxxo"]
-[ext_resource type="LabelSettings" uid="uid://bcfs26afvd75s" path="res://LabelButton.tres" id="5_i1bew"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ljes"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -47,7 +46,6 @@ grow_vertical = 2
 
 [node name="GameNameLabel" type="Label" parent="Overlay/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_n1cq6")
 theme_type_variation = &"HeaderLarge"
 text = "Endless Runner"
 label_settings = ExtResource("2_a1fwf")
@@ -77,7 +75,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
-label_settings = ExtResource("5_i1bew")
+label_settings = ExtResource("4_g0ok8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -95,7 +93,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Options"
-label_settings = ExtResource("5_i1bew")
+label_settings = ExtResource("4_g0ok8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -113,7 +111,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Records"
-label_settings = ExtResource("5_i1bew")
+label_settings = ExtResource("4_g0ok8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -131,7 +129,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
-label_settings = ExtResource("5_i1bew")
+label_settings = ExtResource("4_g0ok8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
